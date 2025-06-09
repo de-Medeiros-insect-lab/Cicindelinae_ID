@@ -1,0 +1,198 @@
+---
+title: "Tiger Beetle Classification Performance Analysis"
+output: html_notebook
+---
+
+# Deep Learning Model Performance for Tiger Beetle Taxonomy
+
+This notebook analyzes classification performance of a multi-label deep learning model for identifying tiger beetle (*Cicindela*) species and subspecies. We examine precision-recall trade-offs across taxonomic hierarchies and assess how training data availability affects model performance.
+
+**Author**: B. de Medeiros, 2025
+
+## Setup and Data Processing
+
+Load required packages and prepare the performance data for analysis.
+
+```{r setup-and-load}
+library(tidyverse)
+
+# Load and process model performance results
+performance_data <- read_csv("test_results.csv") %>% 
+  mutate(
+    # Convert percentages to proportions for mathematical analysis
+    across(starts_with('micro'), ~ .x / 100),
+    # Classify taxonomic level based on naming convention
+    # Subspecies contain underscores (e.g., "repanda_repanda"), species do not (e.g., "sexguttata")
+    taxonomic_level = if_else(str_detect(Term, "_"), "subspecies", "species")
+  ) %>%
+  # Rename columns for clarity
+  rename(
+    taxon = Term,
+    precision = micro_precision,
+    recall = micro_recall,
+    training_specimens = N_train,
+    test_specimens = N
+  )
+
+# Display data structure
+glimpse(performance_data)
+```
+
+## Performance Summary Statistics
+
+Calculate average performance metrics using two approaches: equal weighting (each taxon contributes equally) and specimen weighting (taxa with more training data contribute proportionally more).
+
+```{r summary-stats}
+# Helper function to calculate both weighted and unweighted averages
+calculate_averages <- function(data, group_var) {
+  data %>%
+    group_by({{ group_var }}) %>%
+    summarise(
+      # Equal weight per taxon
+      precision_equal = mean(precision, na.rm = TRUE),
+      recall_equal = mean(recall, na.rm = TRUE),
+      # Weight by training specimen count
+      precision_weighted = weighted.mean(precision, training_specimens, na.rm = TRUE),
+      recall_weighted = weighted.mean(recall, training_specimens, na.rm = TRUE),
+      .groups = 'drop'
+    )
+}
+
+# Calculate averages by taxonomic level
+summary_stats <- calculate_averages(performance_data, taxonomic_level)
+
+# Reshape for visualization (following original working approach)
+plot_averages <- summary_stats %>%
+  pivot_longer(cols = -taxonomic_level, names_to = 'metric') %>%
+  mutate(
+    weighted = str_detect(metric, '_weighted'),
+    metric_clean = str_replace(metric, '^(.+?)_(equal|weighted)$', '\\1')
+  ) %>%
+  pivot_wider(names_from = metric_clean, values_from = value) %>%
+  mutate(
+    weighting_type = case_when(
+      weighted == FALSE ~ "Equal taxa",
+      weighted == TRUE ~ "Weighted by specimens"
+    )
+  )
+
+print("Summary Statistics by Taxonomic Level:")
+print(summary_stats)
+```
+
+## Precision-Recall Visualization
+
+Create a comprehensive visualization showing model performance across all taxonomic groups, with training data availability effects highlighted.
+
+```{r precision-recall-plot}
+# Prepare data for main precision-recall scatter plot
+plot_data <- performance_data %>%
+  arrange(desc(training_specimens))
+
+# Create precision-recall scatter plot
+precision_recall_plot <- ggplot() +
+  # Individual taxa points colored by training set size
+  geom_jitter(
+    data = plot_data,
+    aes(x = precision, y = recall, color = training_specimens),
+    width = 0.03, height = 0.03, alpha = 0.3
+  ) +
+  # Overlay summary averages as distinct shapes
+  geom_point(
+    data = plot_averages,
+    aes(x = precision, y = recall, shape = weighted),
+    size = 3
+  ) +
+  # Customize scales and appearance
+  scale_shape_manual(
+    values = c(0, 2),
+    name = 'Averaging',
+    labels = c("taxa", 'specimens')
+  ) + 
+  scale_color_viridis_c(
+    trans = 'log10',
+    name = "Specimens\nin training",
+    breaks = c(1, 10, 100, max(plot_data$training_specimens))
+  ) +
+  scale_x_continuous(labels = scales::percent) +
+  scale_y_continuous(labels = scales::percent) +
+  theme_minimal() +
+  xlab("Precision") +
+  ylab("Recall") +
+  facet_grid(~ taxonomic_level)
+
+# Display the plot
+print(precision_recall_plot)
+```
+
+Save the precision-recall plot as a publication-ready PDF file.
+
+```{r save-precision-recall}
+ggsave(
+  filename = 'taxonomy_metrics.pdf',
+  plot = precision_recall_plot,
+  device = 'pdf',
+  width = 7,
+  height = 3,
+  units = 'in',
+  useDingbats = FALSE
+)
+```
+
+## Performance vs Training Data Size
+
+Examine how model performance varies with training dataset size for each taxonomic level.
+
+```{r performance-vs-training-size}
+# Prepare data for training size analysis
+training_size_data <- performance_data %>%
+  arrange(desc(training_specimens)) %>%
+  pivot_longer(
+    cols = c("precision", "recall"),
+    names_to = "metric",
+    values_to = "value"
+  )
+
+# Create scatter plot showing performance vs training size
+training_size_plot <- ggplot(training_size_data) +
+  geom_jitter(
+    aes(x = training_specimens, y = value),
+    width = 0.03, height = 0.03, alpha = 0.3
+  ) +
+  scale_x_log10() +
+  scale_y_continuous(labels = scales::percent) +
+  theme_minimal() +
+  xlab("Training specimens (log scale)") +
+  ylab("Performance") +
+  facet_grid(taxonomic_level ~ metric)
+
+# Display the plot
+print(training_size_plot)
+```
+
+
+## Key Findings Summary
+
+```{r findings-summary}
+# Calculate some key statistics for interpretation
+species_count <- sum(performance_data$taxonomic_level == "species")
+subspecies_count <- sum(performance_data$taxonomic_level == "subspecies")
+
+cat("Dataset Overview:\n")
+cat(sprintf("- Total taxa analyzed: %d\n", nrow(performance_data)))
+cat(sprintf("- Species: %d (%.1f%%)\n", species_count, 100 * species_count / nrow(performance_data)))
+cat(sprintf("- Subspecies: %d (%.1f%%)\n", subspecies_count, 100 * subspecies_count / nrow(performance_data)))
+
+cat("\nPerformance Summary:\n")
+for (level in c("species", "subspecies")) {
+  level_data <- summary_stats %>% filter(taxonomic_level == level)
+  cat(sprintf("\n%s:\n", str_to_title(level)))
+  cat(sprintf("- Equal-weighted precision: %.1f%%\n", 100 * level_data$precision_equal))
+  cat(sprintf("- Equal-weighted recall: %.1f%%\n", 100 * level_data$recall_equal))
+  cat(sprintf("- Specimen-weighted precision: %.1f%%\n", 100 * level_data$precision_weighted))
+  cat(sprintf("- Specimen-weighted recall: %.1f%%\n", 100 * level_data$recall_weighted))
+}
+```
+
+
+

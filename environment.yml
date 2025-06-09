@@ -1,0 +1,26 @@
+name: fastai
+channels:
+  - defaults
+  - fastai
+  - conda-forge
+dependencies:
+  - python=3.11
+  - ca-certificates
+  - certifi
+  - openssl
+  - pip
+  - pip:
+    - --index-url https://download.pytorch.org/whl/cu126
+    - --extra-index-url https://pypi.org/simple
+    - fastai==2.8.0
+    - accelerate
+    - huggingface_hub
+    - timm
+    - torch==2.6.0
+    - torchvision
+    - torchaudio
+    - jupyterlab
+    - jupyterlab-widgets
+    - ipywidgets
+    - nbclassic
+prefix: /home/bdemedeiros/software/miniconda3/envs/fastai

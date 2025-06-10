@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# R/RStudio
+.Rproj.user/
+
+# Claude Code
+.claude/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Checkpoint notebooks
+checkpoint.ipynb
+
+# Exported fastai models
+exported_fastai_models/

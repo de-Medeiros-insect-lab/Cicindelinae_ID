@@ -68,6 +68,7 @@ plot_averages <- summary_stats %>%
     weighted = str_detect(metric, '_weighted'),
     metric_clean = str_replace(metric, '^(.+?)_(equal|weighted)$', '\\1')
   ) %>%
+  select(-metric) %>%
   pivot_wider(names_from = metric_clean, values_from = value) %>%
   mutate(
     weighting_type = case_when(
@@ -105,7 +106,7 @@ precision_recall_plot <- ggplot() +
   ) +
   # Customize scales and appearance
   scale_shape_manual(
-    values = c(0, 2),
+    values = c(3, 4),
     name = 'Averaging',
     labels = c("taxa", 'specimens')
   ) + 

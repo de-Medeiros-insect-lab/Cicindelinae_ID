@@ -199,7 +199,7 @@ dist_plot = ggplot(plot_data) +
   scale_x_log10() +
   theme_minimal() +
   ylab("Count") +
-  xlab("Number of raining samples") +
+  xlab(NULL) +
   ggtitle("Label frequencies")
 
 dist_plot
@@ -215,7 +215,7 @@ f1_plot = ggplot(plot_data) +
   scale_y_continuous(labels = scales::percent) +
   scale_color_viridis_c(trans="log1p",breaks=c(1,10,100,501),name="Training\nsamples") + 
   theme_minimal() +
-  xlab(NULL) +
+  xlab("Number of training samples") +
   ylab("F1 score") +
   ggtitle("F1 score")
 
@@ -224,7 +224,23 @@ f1_plot
 
 # Plot metrics plus frequency
 ```{r}
-p = cowplot::plot_grid(cowplot::plot_grid(dist_plot,f1_plot,ncol=1,labels = "AUTO",align = 'hv',axis = 'lrtb'),precision_recall_plot,rel_widths = c(1,1),labels = c("","C"))
+shared_legend <- get_legend(f1_plot)
+
+p_AB = cowplot::plot_grid(
+    dist_plot,
+    f1_plot + theme(legend.position = 'none'),
+    ncol=1,
+    labels = "AUTO",
+    align = 'hv',
+    axis = 'lrtb')
+
+p = cowplot::plot_grid(
+  p_AB,
+  precision_recall_plot,
+  shared_legend,
+  rel_widths = c(1,1,.2),
+  nrow=1,
+  labels = c("","C",""))
 p
 ```
 

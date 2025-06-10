@@ -22,15 +22,17 @@ dependencies:
   - pip:
     - --index-url https://download.pytorch.org/whl/cu126
     - --extra-index-url https://pypi.org/simple
-    - fastai==2.8.0
-    - accelerate
-    - huggingface_hub
-    - timm
+    # Deep learning framework
     - torch==2.6.0
     - torchvision
     - torchaudio
+    # FastAI and related packages
+    - fastai==2.8.0
+    - timm
+    # Jupyter environment
     - jupyterlab
     - jupyterlab-widgets
     - ipywidgets
     - nbclassic
+    - ipython
 prefix: /home/bdemedeiros/software/miniconda3/envs/fastai

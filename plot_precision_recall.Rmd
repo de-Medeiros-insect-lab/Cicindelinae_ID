@@ -15,6 +15,8 @@ Load required packages and prepare the performance data for analysis.
 
 ```{r setup-and-load}
 library(tidyverse)
+library(ggthemes)
+library(cowplot)
 
 # Load and process model performance results
 performance_data <- read_csv("test_results.csv") %>% 
@@ -23,7 +25,9 @@ performance_data <- read_csv("test_results.csv") %>%
     across(starts_with('micro'), ~ .x / 100),
     # Classify taxonomic level based on naming convention
     # Subspecies contain underscores (e.g., "repanda_repanda"), species do not (e.g., "sexguttata")
-    taxonomic_level = if_else(str_detect(Term, "_"), "subspecies", "species")
+    taxonomic_level = if_else(str_detect(Term, "_"), "subspecies", "species"),
+    micro_precision = ifelse(true_positives == 0 & false_positives == 0,1,micro_precision),
+    f1 = true_positives/(true_positives+(false_positives + false_negatives)/2)
   ) %>%
   # Rename columns for clarity
   rename(
@@ -33,6 +37,8 @@ performance_data <- read_csv("test_results.csv") %>%
     training_specimens = N_train,
     test_specimens = N
   )
+
+
 
 # Display data structure
 glimpse(performance_data)
@@ -95,8 +101,8 @@ precision_recall_plot <- ggplot() +
   # Individual taxa points colored by training set size
   geom_jitter(
     data = plot_data,
-    aes(x = precision, y = recall, color = training_specimens),
-    width = 0.03, height = 0.03, alpha = 0.3
+    aes(y = precision, x = recall, color = training_specimens),
+    width = 0.02, height = 0.02, alpha = 0.4
   ) +
   # Overlay summary averages as distinct shapes
   geom_point(
@@ -108,18 +114,21 @@ precision_recall_plot <- ggplot() +
   scale_shape_manual(
     values = c(3, 4),
     name = 'Averaging',
-    labels = c("taxa", 'specimens')
+    labels = c("taxa", 'specimens'),
+    guide = 'none'
   ) + 
   scale_color_viridis_c(
     trans = 'log10',
     name = "Specimens\nin training",
-    breaks = c(1, 10, 100, max(plot_data$training_specimens))
+    breaks = c(1, 10, 100, max(plot_data$training_specimens)),
+    guide = 'none'
   ) +
+  ggtitle("Precision and Recall") +
   scale_x_continuous(labels = scales::percent) +
   scale_y_continuous(labels = scales::percent) +
   theme_minimal() +
-  xlab("Precision") +
-  ylab("Recall") +
+  ylab("Precision") +
+  xlab("Recall") +
   facet_grid(~ taxonomic_level)
 
 # Display the plot
@@ -194,6 +203,68 @@ for (level in c("species", "subspecies")) {
   cat(sprintf("- Specimen-weighted recall: %.1f%%\n", 100 * level_data$recall_weighted))
 }
 ```
+# Label frequency distribution
+
+```{r}
+dist_plot = ggplot(plot_data) +
+  geom_histogram(aes(x=training_specimens, fill=after_stat(x)), bins=50) +
+  scale_fill_viridis_c(trans="log1p",guide = 'none') + 
+  scale_x_log10() +
+  theme_minimal() +
+  ylab("Count") +
+  xlab("Number of raining samples") +
+  ggtitle("Label frequencies")
+
+dist_plot
+```
 
 
+
+# Label frequencies x F1 score
+```{r}
+f1_plot = ggplot(plot_data) +
+  geom_jitter(aes(x=training_specimens,y=f1, color=training_specimens),width=0.03,height=.03,alpha=0.4) +
+  scale_x_log10() +
+  scale_y_continuous(labels = scales::percent) +
+  scale_color_viridis_c(trans="log1p",breaks=c(1,10,100,501),name="Training\nsamples") + 
+  theme_minimal() +
+  xlab(NULL) +
+  ylab("F1 score") +
+  ggtitle("F1 score")
+
+f1_plot
+```
+
+# Plot metrics plus frequency
+```{r}
+p = cowplot::plot_grid(cowplot::plot_grid(dist_plot,f1_plot,ncol=1,labels = "AUTO",align = 'hv',axis = 'lrtb'),precision_recall_plot,rel_widths = c(1,1),labels = c("","C"))
+p
+```
+
+```{r}
+ggsave(
+  filename = 'taxonomy_metrics.pdf',
+  plot = p,
+  device = 'pdf',
+  width = 7,
+  height = 3,
+  units = 'in',
+  useDingbats = FALSE
+)
+
+ggsave(
+  filename = 'taxonomy_metrics.png',
+  plot = p,
+  device = 'png',
+  width = 7,
+  height = 3,
+  units = 'in',
+  dpi = 300  # High resolution for crisp appearance
+)
+```
+
+
+```{r}
+performance_data %>% filter(taxon=="sylvicola")
+```
 

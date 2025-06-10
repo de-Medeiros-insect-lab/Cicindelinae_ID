@@ -107,7 +107,7 @@ precision_recall_plot <- ggplot() +
   # Overlay summary averages as distinct shapes
   geom_point(
     data = plot_averages,
-    aes(x = precision, y = recall, shape = weighted),
+    aes(y = precision, x = recall, shape = weighted),
     size = 3
   ) +
   # Customize scales and appearance
@@ -135,19 +135,6 @@ precision_recall_plot <- ggplot() +
 print(precision_recall_plot)
 ```
 
-Save the precision-recall plot as a publication-ready PDF file.
-
-```{r save-precision-recall}
-ggsave(
-  filename = 'taxonomy_metrics.pdf',
-  plot = precision_recall_plot,
-  device = 'pdf',
-  width = 7,
-  height = 3,
-  units = 'in',
-  useDingbats = FALSE
-)
-```
 
 ## Performance vs Training Data Size
 

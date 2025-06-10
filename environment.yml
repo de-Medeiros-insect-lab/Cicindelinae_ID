@@ -9,6 +9,16 @@ dependencies:
   - certifi
   - openssl
   - pip
+  # Core data science packages
+  - pandas
+  - numpy
+  - matplotlib
+  - scikit-learn
+  # R and R packages for analysis
+  - r-base
+  - r-tidyverse
+  - r-scales
+  - r-rmarkdown
   - pip:
     - --index-url https://download.pytorch.org/whl/cu126
     - --extra-index-url https://pypi.org/simple

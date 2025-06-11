@@ -210,6 +210,11 @@ dist_plot
 # Label frequencies x F1 score
 ```{r}
 f1_plot = ggplot(plot_data) +
+    geom_smooth(aes(x=training_specimens, y=f1), 
+              method = "loess",
+              span = 0.5,  # Adjust for smoothness
+              se = FALSE,
+              color = gray(0.8)) +
   geom_jitter(aes(x=training_specimens,y=f1, color=training_specimens),width=0.03,height=.03,alpha=0.4) +
   scale_x_log10() +
   scale_y_continuous(labels = scales::percent) +
@@ -218,8 +223,8 @@ f1_plot = ggplot(plot_data) +
   xlab("Number of training samples") +
   ylab("F1 score") +
   ggtitle("F1 score")
-
 f1_plot
+
 ```
 
 # Plot metrics plus frequency

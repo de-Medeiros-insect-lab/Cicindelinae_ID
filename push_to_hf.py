@@ -39,13 +39,14 @@ def extract_vocab_from_learner(learn):
     try:
         # Get vocabulary from the learner's dataloaders
         vocab = learn.dls.vocab
-        if hasattr(vocab, 'items'):
+        try:
             # Convert to list if it's a vocab object
             vocab_list = list(vocab.items())
-        elif isinstance(vocab, (list, tuple)):
-            vocab_list = list(vocab)
-        else:
-            vocab_list = [str(v) for v in vocab]
+        except TypeError:
+            if isinstance(vocab, (list, tuple)):
+                vocab_list = list(vocab)
+            else:
+                vocab_list = [str(v) for v in vocab]
         return vocab_list
     except Exception as e:
         print(f"Warning: Could not extract vocabulary: {e}")

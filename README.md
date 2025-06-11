@@ -55,6 +55,33 @@ These are not part of this repository due to their large size. See https://huggi
 - Substantial GPU memory for large batch processing
 - Mixed precision training support
 
+## File Contents
+
+### Core Files
+- `Run_multilabel_fastai.ipynb` - Main training pipeline and model development notebook
+- `environment.yml` - Conda environment specification with all dependencies
+- `push_to_hf.py` - Script to upload trained models to Hugging Face Hub
+- `CLAUDE.md` - Development guidelines and project documentation for AI assistants
+
+### Data and Images
+- `images/` - Dataset directory containing train/valid/test splits organized by taxonomic labels
+- `unknowns/` - Test images for model evaluation and inference
+
+### Models and Results
+- `exported_fastai_models/` - Directory containing trained model files (.pkl format)
+- `models/` - Additional model storage and configurations
+- `test_results_*.csv` - Model performance metrics by taxonomic classification
+- `taxonomy_metrics.pdf` and `taxonomy_metrics.png` - Performance visualization charts
+
+### Analysis and Visualization
+- `plot_precision_recall.Rmd` - R Markdown script for generating performance analysis plots
+- `plot_precision_recall.nb.html` - Rendered HTML output of the precision-recall analysis
+
+### Project Configuration
+- `Cicindela_id.Rproj` - R Studio project configuration file
+- `LICENSE` - Project license information
+- `README.md` - This documentation file
+
 ## License
 
 See LICENSE file for details.

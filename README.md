@@ -10,7 +10,7 @@ Postema, E. G., Briscoe, L., Harder, C., Hancock, G. R. A., Guarnieri, L. D., Ei
 
 ## Overview
 
-The project implements a hierarchical multilabel classification system to identify *Cicindela* species and subspecies from specimen images. The approach uses transfer learning with modern vision architectures and addresses class imbalance through weighted sampling.
+The project implements a multilabel classification system to identify *Cicindela* species and subspecies from specimen images. The approach uses transfer learning with modern vision architectures and addresses class imbalance through weighted sampling and asymmetric loss.
 
 ## Environment Setup
 
@@ -64,7 +64,7 @@ These are not part of this repository due to their large size. See https://huggi
 - `CLAUDE.md` - Development guidelines and project documentation for AI assistants
 
 ### Data and Images
-- `images/` - Dataset directory containing train/valid/test splits organized by taxonomic labels
+- `images/` - Dataset directory containing train/valid/test splits organized by taxonomic labels. The actual files are not available in this repository due to storage size.
 - `unknowns/` - Test images for model evaluation and inference
 
 ### Models and Results

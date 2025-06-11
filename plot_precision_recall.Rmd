@@ -1,6 +1,10 @@
 ---
 title: "Tiger Beetle Classification Performance Analysis"
-output: html_notebook
+output: 
+  html_notebook:
+    toc: true
+    toc_float: true
+    toc_depth: 3
 ---
 
 # Deep Learning Model Performance for Tiger Beetle Taxonomy
@@ -11,23 +15,35 @@ This notebook analyzes classification performance of a multi-label deep learning
 
 ## Setup and Data Processing
 
-Load required packages and prepare the performance data for analysis.
+Load required packages and process model performance results:
+
+1. **Package loading**: Import tidyverse for data manipulation, ggthemes and cowplot for visualization
+2. **Data import**: Read CSV results from EVA02-Large model evaluation
+3. **Data transformation**: Convert percentages to proportions, classify taxonomic levels, and calculate F1 scores
+4. **Column renaming**: Standardize column names for clarity in analysis
 
 ```{r setup-and-load}
+set.seed(1324)
+
+# Load required libraries
 library(tidyverse)
 library(ggthemes)
 library(cowplot)
+```
 
+```{r data-processing}
 # Load and process model performance results
-performance_data <- read_csv("test_results.csv") %>% 
+performance_data <- read_csv("test_results_eva02_large_patch14_448.mim_m38m_ft_in22k_in1k.csv") %>% 
   mutate(
     # Convert percentages to proportions for mathematical analysis
     across(starts_with('micro'), ~ .x / 100),
+    
     # Classify taxonomic level based on naming convention
     # Subspecies contain underscores (e.g., "repanda_repanda"), species do not (e.g., "sexguttata")
     taxonomic_level = if_else(str_detect(Term, "_"), "subspecies", "species"),
-    micro_precision = ifelse(true_positives == 0 & false_positives == 0,1,micro_precision),
-    f1 = true_positives/(true_positives+(false_positives + false_negatives)/2)
+    
+    # Calculate F1 score
+    f1 = true_positives / (true_positives + (false_positives + false_negatives) / 2)
   ) %>%
   # Rename columns for clarity
   rename(
@@ -38,17 +54,21 @@ performance_data <- read_csv("test_results.csv") %>%
     test_specimens = N
   )
 
-
-
 # Display data structure
 glimpse(performance_data)
 ```
 
 ## Performance Summary Statistics
 
-Calculate average performance metrics using two approaches: equal weighting (each taxon contributes equally) and specimen weighting (taxa with more training data contribute proportionally more).
+Calculate comprehensive summary statistics using multiple weighting approaches:
 
-```{r summary-stats}
+1. **Helper function**: Create `calculate_averages()` to compute both equal-weighted and specimen-weighted metrics
+2. **Equal weighting**: Each taxon contributes equally regardless of sample size
+3. **Specimen weighting**: Taxa with more training specimens contribute proportionally more to averages
+4. **Data reshaping**: Transform data for downstream visualization using pivot operations
+5. **Summary output**: Display performance statistics grouped by taxonomic level
+
+```{r helper-function}
 # Helper function to calculate both weighted and unweighted averages
 calculate_averages <- function(data, group_var) {
   data %>%
@@ -57,13 +77,17 @@ calculate_averages <- function(data, group_var) {
       # Equal weight per taxon
       precision_equal = mean(precision, na.rm = TRUE),
       recall_equal = mean(recall, na.rm = TRUE),
+      
       # Weight by training specimen count
       precision_weighted = weighted.mean(precision, training_specimens, na.rm = TRUE),
       recall_weighted = weighted.mean(recall, training_specimens, na.rm = TRUE),
+      
       .groups = 'drop'
     )
 }
+```
 
+```{r summary-stats}
 # Calculate averages by taxonomic level
 summary_stats <- calculate_averages(performance_data, taxonomic_level)
 
@@ -89,20 +113,31 @@ print(summary_stats)
 
 ## Precision-Recall Visualization
 
-Create a comprehensive visualization showing model performance across all taxonomic groups, with training data availability effects highlighted.
+Create a comprehensive scatter plot visualization:
 
-```{r precision-recall-plot}
+1. **Main scatter plot**: Individual taxa plotted by precision vs recall, colored by training sample size
+2. **Point jittering**: Add small random offsets to prevent overplotting
+3. **Summary overlays**: Add average performance points with distinct shapes for equal and specimen weighting
+4. **Color mapping**: Use viridis color scale with log10 transformation for training specimen counts
+5. **Faceting**: Separate panels for species vs subspecies classifications
+6. **Styling**: Apply minimal theme with percentage formatting for axes
+
+```{r prepare-plot-data}
 # Prepare data for main precision-recall scatter plot
 plot_data <- performance_data %>%
   arrange(desc(training_specimens))
+```
 
+```{r precision-recall-plot}
 # Create precision-recall scatter plot
 precision_recall_plot <- ggplot() +
   # Individual taxa points colored by training set size
   geom_jitter(
     data = plot_data,
     aes(y = precision, x = recall, color = training_specimens),
-    width = 0.02, height = 0.02, alpha = 0.4
+    width = 0.02, 
+    height = 0.02, 
+    alpha = 0.4
   ) +
   # Overlay summary averages as distinct shapes
   geom_point(
@@ -123,13 +158,13 @@ precision_recall_plot <- ggplot() +
     breaks = c(1, 10, 100, max(plot_data$training_specimens)),
     guide = 'none'
   ) +
-  ggtitle("Precision and Recall") +
   scale_x_continuous(labels = scales::percent) +
   scale_y_continuous(labels = scales::percent) +
-  theme_minimal() +
-  ylab("Precision") +
+  ggtitle("Precision and Recall") +
   xlab("Recall") +
-  facet_grid(~ taxonomic_level)
+  ylab("Precision") +
+  facet_grid(~ taxonomic_level) +
+  theme_minimal()
 
 # Display the plot
 print(precision_recall_plot)
@@ -138,9 +173,15 @@ print(precision_recall_plot)
 
 ## Performance vs Training Data Size
 
-Examine how model performance varies with training dataset size for each taxonomic level.
+Examine relationships between training data availability and model performance:
 
-```{r performance-vs-training-size}
+1. **Data reshaping**: Pivot precision and recall metrics into long format for faceted visualization
+2. **Scatter plot**: Plot performance metrics against training specimen counts
+3. **Log scaling**: Use log10 transformation for training specimens to handle wide range of values
+4. **Faceted layout**: Separate panels for taxonomic level (species/subspecies) and metric type (precision/recall)
+5. **Transparency**: Use alpha blending to show density patterns in overlapping points
+
+```{r prepare-training-size-data}
 # Prepare data for training size analysis
 training_size_data <- performance_data %>%
   arrange(desc(training_specimens)) %>%
@@ -149,19 +190,23 @@ training_size_data <- performance_data %>%
     names_to = "metric",
     values_to = "value"
   )
+```
 
+```{r performance-vs-training-size}
 # Create scatter plot showing performance vs training size
 training_size_plot <- ggplot(training_size_data) +
   geom_jitter(
     aes(x = training_specimens, y = value),
-    width = 0.03, height = 0.03, alpha = 0.3
+    width = 0.03, 
+    height = 0.03, 
+    alpha = 0.3
   ) +
   scale_x_log10() +
   scale_y_continuous(labels = scales::percent) +
-  theme_minimal() +
   xlab("Training specimens (log scale)") +
   ylab("Performance") +
-  facet_grid(taxonomic_level ~ metric)
+  facet_grid(taxonomic_level ~ metric) +
+  theme_minimal()
 
 # Display the plot
 print(training_size_plot)
@@ -170,86 +215,142 @@ print(training_size_plot)
 
 ## Key Findings Summary
 
-```{r findings-summary}
+Generate quantitative summary statistics and interpretation:
+
+```{r calculate-summary-stats}
 # Calculate some key statistics for interpretation
 species_count <- sum(performance_data$taxonomic_level == "species")
 subspecies_count <- sum(performance_data$taxonomic_level == "subspecies")
+```
 
+```{r findings-summary}
+# Dataset overview
 cat("Dataset Overview:\n")
 cat(sprintf("- Total taxa analyzed: %d\n", nrow(performance_data)))
-cat(sprintf("- Species: %d (%.1f%%)\n", species_count, 100 * species_count / nrow(performance_data)))
-cat(sprintf("- Subspecies: %d (%.1f%%)\n", subspecies_count, 100 * subspecies_count / nrow(performance_data)))
+cat(sprintf("- Species: %d (%.1f%%)\n", 
+            species_count, 
+            100 * species_count / nrow(performance_data)))
+cat(sprintf("- Subspecies: %d (%.1f%%)\n", 
+            subspecies_count, 
+            100 * subspecies_count / nrow(performance_data)))
 
+# Performance summary by taxonomic level
 cat("\nPerformance Summary:\n")
 for (level in c("species", "subspecies")) {
   level_data <- summary_stats %>% filter(taxonomic_level == level)
   cat(sprintf("\n%s:\n", str_to_title(level)))
-  cat(sprintf("- Equal-weighted precision: %.1f%%\n", 100 * level_data$precision_equal))
-  cat(sprintf("- Equal-weighted recall: %.1f%%\n", 100 * level_data$recall_equal))
-  cat(sprintf("- Specimen-weighted precision: %.1f%%\n", 100 * level_data$precision_weighted))
-  cat(sprintf("- Specimen-weighted recall: %.1f%%\n", 100 * level_data$recall_weighted))
+  cat(sprintf("- Equal-weighted precision: %.1f%%\n", 
+              100 * level_data$precision_equal))
+  cat(sprintf("- Equal-weighted recall: %.1f%%\n", 
+              100 * level_data$recall_equal))
+  cat(sprintf("- Specimen-weighted precision: %.1f%%\n", 
+              100 * level_data$precision_weighted))
+  cat(sprintf("- Specimen-weighted recall: %.1f%%\n", 
+              100 * level_data$recall_weighted))
 }
 ```
-# Label frequency distribution
+## Training Sample Distribution
 
-```{r}
-dist_plot = ggplot(plot_data) +
-  geom_histogram(aes(x=training_specimens, fill=after_stat(x)), bins=50) +
-  scale_fill_viridis_c(trans="log1p",guide = 'none') + 
+Visualize the distribution of training sample sizes across taxonomic classes:
+
+```{r distribution-plot}
+dist_plot <- ggplot(plot_data) +
+  geom_histogram(
+    aes(x = training_specimens, fill = after_stat(x)), 
+    bins = 50
+  ) +
+  scale_fill_viridis_c(
+    trans = "log1p", 
+    guide = 'none'
+  ) + 
   scale_x_log10() +
-  theme_minimal() +
-  ylab("Count") +
+  ggtitle("Label frequencies") +
   xlab(NULL) +
-  ggtitle("Label frequencies")
+  ylab("Count") +
+  theme_minimal()
 
 dist_plot
 ```
 
 
 
-# Label frequencies x F1 score
-```{r}
-f1_plot = ggplot(plot_data) +
-    geom_smooth(aes(x=training_specimens, y=f1), 
-              method = "loess",
-              span = 0.5,  # Adjust for smoothness
-              se = FALSE,
-              color = gray(0.8)) +
-  geom_jitter(aes(x=training_specimens,y=f1, color=training_specimens),width=0.03,height=.03,alpha=0.4) +
-  scale_x_log10() +
-  scale_y_continuous(labels = scales::percent) +
-  scale_color_viridis_c(trans="log1p",breaks=c(1,10,100,501),name="Training\nsamples") + 
-  theme_minimal() +
+## F1 Score vs Training Sample Size
+
+Examine the relationship between F1 performance and training data availability:
+```{r f1-plot}
+f1_plot <- ggplot(plot_data) +
+  # Add smooth trend line
+  geom_smooth(
+    aes(x = training_specimens, y = f1), 
+    method = "loess",
+    span = 0.5,  # Adjust for smoothness
+    se = FALSE,
+    color = gray(0.8)
+  ) +
+  # Add individual points
+  geom_jitter(
+    aes(x = training_specimens, y = f1, color = training_specimens),
+    width = 0.03, 
+    height = 0.03, 
+    alpha = 0.4
+  ) +
+  # Customize scales
+  scale_x_log10(breaks = c(1, 2, 5, 10, 20, 50, 100, 200, 500)) +
+  scale_y_continuous(
+    labels = scales::percent, 
+    breaks = seq(0, 1.00, by = 0.20)
+  ) +
+  scale_color_viridis_c(
+    trans = "log1p",
+    breaks = c(1, 10, 100, 501),
+    name = "Training\nsamples"
+  ) + 
+  ggtitle("F1 score") +
   xlab("Number of training samples") +
   ylab("F1 score") +
-  ggtitle("F1 score")
-f1_plot
+  theme_minimal()
 
+f1_plot
 ```
 
-# Plot metrics plus frequency
-```{r}
+## Combined Performance Visualization
+
+Create a comprehensive multi-panel figure combining all key performance metrics:
+```{r extract-legend}
+# Extract shared legend from F1 plot
 shared_legend <- get_legend(f1_plot)
+```
 
-p_AB = cowplot::plot_grid(
-    dist_plot,
-    f1_plot + theme(legend.position = 'none'),
-    ncol=1,
-    labels = "AUTO",
-    align = 'hv',
-    axis = 'lrtb')
+```{r combine-plots}
+# Combine distribution and F1 plots vertically
+p_AB <- cowplot::plot_grid(
+  dist_plot,
+  f1_plot + theme(legend.position = 'none'),
+  ncol = 1,
+  labels = "AUTO",
+  align = 'hv',
+  axis = 'lrtb'
+)
 
-p = cowplot::plot_grid(
+# Create final combined plot with shared legend
+p <- cowplot::plot_grid(
   p_AB,
   precision_recall_plot,
   shared_legend,
-  rel_widths = c(1,1,.2),
-  nrow=1,
-  labels = c("","C",""))
+  rel_widths = c(1, 1, 0.2),
+  nrow = 1,
+  labels = c("", "C", "")
+)
+
 p
 ```
 
-```{r}
+## Export Publication Figures
+
+Save the combined visualization in multiple formats for publication:
+
+```{r save-figures}
+# Save as PDF for publication
 ggsave(
   filename = 'taxonomy_metrics.pdf',
   plot = p,
@@ -260,6 +361,7 @@ ggsave(
   useDingbats = FALSE
 )
 
+# Save as high-resolution PNG
 ggsave(
   filename = 'taxonomy_metrics.png',
   plot = p,
@@ -272,7 +374,12 @@ ggsave(
 ```
 
 
-```{r}
-performance_data %>% filter(taxon=="sylvicola")
+## Individual Taxon Inspection
+
+Quick lookup for specific taxon performance (example: *Cicindela sylvicola*):
+
+```{r taxon-lookup}
+performance_data %>% 
+  filter(taxon == "sylvicola")
 ```
 

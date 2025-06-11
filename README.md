@@ -38,7 +38,7 @@ Rscript -e "rmarkdown::render('plot_precision_recall.Rmd')"
 
 - **Hierarchical classification**: Predicts both species and subspecies levels
 - **Weighted sampling**: Addresses class imbalance using inverse frequency weighting
-- **Multiple architectures**: Supports EVA-02 and ResNeXt models
+- **Multiple architectures**: Supports timm library models
 - **Mixed precision training**: Optimized for GPU memory efficiency
 
 ## Model Files
@@ -46,6 +46,8 @@ Rscript -e "rmarkdown::render('plot_precision_recall.Rmd')"
 Trained models are saved in `exported_fastai_models/`:
 - `*_sl.pkl`: Single-label models
 - `*_ml.pkl`: Multi-label models
+
+These are not part of this repository due to their large size. See https://huggingface.co/brunoasm/eva02_large_patch14_448.Cicindela_ID_FMNH for the final multilabel model.
 
 ## Hardware Requirements
 

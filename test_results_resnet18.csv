@@ -1,0 +1,194 @@
+,Term,N_train,N,micro_precision,micro_recall,true_positives,false_positives,false_negatives,confused_with
+145,scutellaris,277,47,100.0,46.808510638297875,22,0,25,"formosa (1), scutellaris_lecontei_x_Cicindela_(Cicindela)_scutellaris_scutellaris (1)"
+115,oregona,267,44,100.0,43.18181818181818,19,0,25,"oregona_oregona (1), duodecimguttata (1), oregona_maricopa (1)"
+172,tranquebarica,191,31,100.0,64.51612903225806,20,0,11,tranquebarica_tranquebarica (1)
+127,punctulata_punctulata,167,25,100.0,4.0,1,0,24,trifasciata (2)
+147,scutellaris_lecontei,156,23,100.0,65.21739130434783,15,0,8,formosa (1)
+60,hemorrhagica_hemorrhagica,142,21,100.0,19.047619047619047,4,0,17,
+113,ocellata_rectilatera,99,15,100.0,33.33333333333333,5,0,10,ocellata_ocellata (3)
+90,longilabris,74,14,100.0,28.57142857142857,4,0,10,concolor (1)
+107,obsoleta,68,14,100.0,35.714285714285715,5,0,9,
+137,rufiventris,83,14,100.0,50.0,7,0,7,rufiventris_rufiventris (1)
+71,hybrida,69,11,100.0,54.54545454545454,6,0,5,
+34,depressula,43,9,100.0,33.33333333333333,3,0,6,
+178,trifasciata_ascendens,56,9,100.0,33.33333333333333,3,0,6,"punctulata (2), trifasciata_trifasciata (1)"
+52,fulgida,48,8,100.0,100.0,8,0,0,formosa (1)
+67,hirticollis_rhodensis,56,8,100.0,25.0,2,0,6,
+53,fulgida_fulgida,42,7,100.0,100.0,7,0,0,formosa (1)
+150,scutellaris_scutellaris,46,7,100.0,71.42857142857143,5,0,2,
+11,bellissima,36,6,100.0,33.33333333333333,2,0,4,
+78,lacrymosa,33,6,100.0,16.666666666666664,1,0,5,
+80,latesignata,34,6,100.0,66.66666666666666,4,0,2,formosa (1)
+93,longilabris_perviridis,42,6,100.0,16.666666666666664,1,0,5,
+170,tenuisignata,38,6,100.0,66.66666666666666,4,0,2,
+176,tranquebarica_vibex,34,6,100.0,16.666666666666664,1,0,5,
+165,sylvatica,23,5,100.0,60.0,3,0,2,sylvatica_sylvatica (1)
+190,willistoni_echo,35,5,100.0,100.0,5,0,0,
+16,carthagena,21,4,100.0,75.0,3,0,1,hemorrhagica (1)
+17,carthagena_carthagena,20,4,100.0,50.0,2,0,2,hemorrhagica (1)
+0,abdominalis,21,3,100.0,33.33333333333333,1,0,2,punctulata (1)
+87,limbata_nympha,12,3,100.0,33.33333333333333,1,0,2,
+125,pulchra,15,3,100.0,100.0,3,0,0,
+132,quadripunctulata,17,3,100.0,33.33333333333333,1,0,2,
+148,scutellaris_rugata,15,3,100.0,66.66666666666666,2,0,1,
+179,trifasciata_peruviana,13,3,100.0,33.33333333333333,1,0,2,
+3,amargosae,5,2,100.0,50.0,1,0,1,
+5,angulata,10,2,100.0,50.0,1,0,1,
+7,arenicola,4,2,100.0,50.0,1,0,1,limbata (1)
+21,cincta,8,2,100.0,100.0,2,0,0,miseranda (1)
+25,compressicornis,4,2,100.0,100.0,2,0,0,
+29,decemguttata_decemguttata,6,2,100.0,50.0,1,0,1,
+96,luteolineata,4,2,100.0,50.0,1,0,1,
+97,marginipennis,5,2,100.0,50.0,1,0,1,
+130,purpurea_cimarrona,7,2,100.0,50.0,1,0,1,
+144,schauppii,4,2,100.0,50.0,1,0,1,
+158,setosomalaris,7,2,100.0,50.0,1,0,1,
+160,sexpunctata,14,2,100.0,100.0,2,0,0,
+162,sommeri,11,2,100.0,50.0,1,0,1,
+171,theatina,10,2,100.0,100.0,2,0,0,
+22,clarina,4,1,100.0,100.0,1,0,0,
+57,hamiltoniana,4,1,100.0,100.0,1,0,0,
+75,interrupta,4,1,100.0,100.0,1,0,0,
+79,lacteola,1,1,100.0,100.0,1,0,0,
+182,turkestanica,2,1,100.0,100.0,1,0,0,turkestanica_gissariensis (1)
+183,turkestanica_turkestanica,1,1,100.0,100.0,1,0,0,turkestanica_gissariensis (1)
+159,sexguttata,328,48,97.77777777777777,91.66666666666666,44,1,4,
+49,formosa_generosa,191,28,95.23809523809523,71.42857142857143,20,1,8,formosa_formosa (2)
+134,repanda,501,73,94.33962264150944,68.4931506849315,50,3,23,"hirticollis (7), repanda_repanda (7), hirticollis_shelfordi (1)"
+12,campestris,86,15,93.33333333333333,93.33333333333333,14,1,1,campestris_campestris (3)
+177,trifasciata,188,30,92.3076923076923,80.0,24,2,6,"punctulata (3), trifasciata_trifasciata (1), trifasciata_sigmoidea (1)"
+175,tranquebarica_tranquebarica,116,17,91.66666666666666,64.70588235294117,11,1,6,
+118,oregona_oregona,219,33,90.9090909090909,30.303030303030305,10,1,23,oregona_maricopa (1)
+128,purpurea,125,22,90.9090909090909,45.45454545454545,10,1,12,"limbalis (2), purpurea_purpurea (1)"
+126,punctulata,500,74,90.2439024390244,50.0,37,4,37,"trifasciata (2), ocellata (1)"
+111,ocellata,200,30,90.0,60.0,18,2,12,"ocellata_ocellata (3), sedecimpunctata (1), sedecimpunctata_sedecimpunctata (1)"
+47,formosa,276,42,87.87878787878788,69.04761904761905,29,4,13,"formosa_formosa (2), lengi (1), lengi_lengi (1), formosa_generosa (1)"
+163,splendida,77,12,87.5,58.333333333333336,7,1,5,"limbalis (1), purpurea (1)"
+26,concolor,44,7,87.5,100.0,7,1,0,
+58,hemorrhagica,149,23,83.33333333333334,21.73913043478261,5,1,18,
+139,rufiventris_rufiventris,77,12,83.33333333333334,41.66666666666667,5,1,7,
+189,willistoni,42,7,83.33333333333334,71.42857142857143,5,1,2,
+48,formosa_formosa,77,11,80.0,72.72727272727273,8,2,3,"lengi (1), lengi_lengi (1)"
+9,aurulenta,22,4,80.0,100.0,4,1,0,batesi (1)
+101,nebraskana,21,4,80.0,100.0,4,1,0,
+84,limbalis,60,10,75.0,90.0,9,3,1,splendida (1)
+81,lengi,27,5,75.0,60.0,3,1,2,formosa (1)
+135,repanda_repanda,359,53,73.52941176470588,47.16981132075472,25,9,28,hirticollis (1)
+112,ocellata_ocellata,101,15,70.0,46.666666666666664,7,3,8,"sedecimpunctata (1), sedecimpunctata_sedecimpunctata (1)"
+13,campestris_campestris,69,11,70.0,63.63636363636363,7,3,4,
+28,decemguttata,23,5,66.66666666666666,40.0,2,1,3,
+168,sylvicola,25,5,66.66666666666666,40.0,2,1,3,
+180,trifasciata_sigmoidea,32,5,66.66666666666666,40.0,2,1,3,
+10,batesi,24,4,66.66666666666666,50.0,2,1,2,"aurulenta (1), chinensis (1)"
+19,chinensis,30,4,66.66666666666666,100.0,4,2,0,duponti (1)
+82,lengi_lengi,24,4,66.66666666666666,50.0,2,1,2,
+62,hirticollis,176,29,58.82352941176471,34.48275862068966,10,7,19,"repanda (3), repanda_repanda (2)"
+153,sedecimpunctata,100,16,50.0,6.25,1,1,15,"decemguttata (1), ocellata (1)"
+156,sedecimpunctata_sedecimpunctata,91,13,50.0,7.6923076923076925,1,1,12,"decemguttata (1), ocellata (1)"
+68,hirticollis_shelfordi,22,4,50.0,25.0,1,1,3,"repanda (1), repanda_repanda (1)"
+85,limbata,20,4,50.0,75.0,3,3,1,
+167,sylvatica_sylvatica,21,3,50.0,33.33333333333333,1,1,2,
+38,duponti,7,1,50.0,100.0,1,1,0,chinensis (1)
+86,limbata_limbata,7,1,50.0,100.0,1,1,0,
+37,duodecimguttata,86,13,0.0,0.0,0,1,13,
+66,hirticollis_hirticollis,77,11,0.0,0.0,0,0,11,"repanda (1), repanda_repanda (1)"
+149,scutellaris_rugifrons,42,7,0.0,0.0,0,0,7,
+104,nigrocoerulea,29,5,0.0,0.0,0,0,5,
+105,nigrocoerulea_nigrocoerulea,28,5,0.0,0.0,0,0,5,
+108,obsoleta_obsoleta,26,5,0.0,0.0,0,0,5,
+131,purpurea_purpurea,27,5,0.0,0.0,0,1,5,limbalis (1)
+116,oregona_guttifera,22,4,0.0,0.0,0,0,4,
+117,oregona_maricopa,16,4,0.0,0.0,0,1,4,
+129,purpurea_audubonii,19,4,0.0,0.0,0,0,4,
+4,ancocisconensis,15,3,0.0,0.0,0,0,3,
+30,decemguttata_durvillei,17,3,0.0,0.0,0,0,3,
+72,hybrida_hybrida,18,3,0.0,0.0,0,0,3,
+91,longilabris_laurentii,11,3,0.0,0.0,0,0,3,
+92,longilabris_longilabris,15,3,0.0,0.0,0,0,3,concolor (1)
+94,lunulata,18,3,0.0,0.0,0,0,3,
+110,obsoleta_vulturina,12,3,0.0,0.0,0,0,3,
+6,angulata_angulata,9,2,0.0,0.0,0,0,2,
+27,cyaniventris,10,2,0.0,0.0,0,0,2,
+31,decemnotata,6,2,0.0,0.0,0,0,2,
+33,denverensis,8,2,0.0,0.0,0,0,2,
+35,depressula_depressula,8,2,0.0,0.0,0,0,2,
+40,fimbriata,3,2,0.0,0.0,0,0,2,
+43,fischeri,6,2,0.0,0.0,0,0,2,
+55,gallica,11,2,0.0,0.0,0,0,2,sylvicola (1)
+59,hemorrhagica_arizonae,7,2,0.0,0.0,0,0,2,
+63,hirticollis_corpuscula,5,2,0.0,0.0,0,0,2,repanda (1)
+69,hirticollis_siuslawensis,8,2,0.0,0.0,0,0,2,
+88,littoralis,7,2,0.0,0.0,0,0,2,
+100,miseranda,5,2,0.0,0.0,0,1,2,
+109,obsoleta_santeclarae,5,2,0.0,0.0,0,0,2,
+119,papillosa,6,2,0.0,0.0,0,0,2,
+123,plutonica,8,2,0.0,0.0,0,0,2,nebraskana (1)
+138,rufiventris_heutzii,6,2,0.0,0.0,0,0,2,rufiventris_rufiventris (1)
+142,sachalinensis,5,2,0.0,0.0,0,0,2,
+151,scutellaris_unicolor,6,2,0.0,0.0,0,0,2,
+154,sedecimpunctata_nigroconfluens,6,2,0.0,0.0,0,0,2,
+157,senilis,6,2,0.0,0.0,0,0,2,
+161,soluta,8,2,0.0,0.0,0,0,2,
+173,tranquebarica_diffracta,4,2,0.0,0.0,0,0,2,
+181,trifasciata_trifasciata,14,2,0.0,0.0,0,1,2,punctulata (1)
+185,vasseletii,4,2,0.0,0.0,0,0,2,
+186,virgula,5,2,0.0,0.0,0,0,2,
+188,whithillii,6,2,0.0,0.0,0,0,2,
+1,aeneicollis,3,1,0.0,0.0,0,0,1,
+2,alboguttata,2,1,0.0,0.0,0,0,1,
+8,aulica,3,1,0.0,0.0,0,0,1,
+14,campestris_pontica,1,1,0.0,0.0,0,0,1,campestris_campestris (1)
+15,cardoni,3,1,0.0,0.0,0,0,1,
+18,caucasica,2,1,0.0,0.0,0,0,1,
+20,chrysippe,1,1,0.0,0.0,0,0,1,
+23,clypeata,1,1,0.0,0.0,0,0,1,campestris (1)
+24,coerulea,1,1,0.0,0.0,0,0,1,
+32,denikei,3,1,0.0,0.0,0,0,1,sexguttata (1)
+36,depressula_eureka,2,1,0.0,0.0,0,0,1,
+39,equestris,7,1,0.0,0.0,0,0,1,
+41,fimbriata_fimbriata,2,1,0.0,0.0,0,0,1,
+42,fimbriata_imperatrix,1,1,0.0,0.0,0,0,1,
+44,fischeri_elongatosignata,4,1,0.0,0.0,0,0,1,
+45,fischeri_fischeri,2,1,0.0,0.0,0,0,1,
+46,flohri,2,1,0.0,0.0,0,0,1,
+50,formosa_gibsoni,4,1,0.0,0.0,0,0,1,
+51,formosa_pigmentosignata,1,1,0.0,0.0,0,0,1,
+54,fulgida_westbournei,4,1,0.0,0.0,0,0,1,
+56,granulata,3,1,0.0,0.0,0,0,1,
+61,heros,3,1,0.0,0.0,0,0,1,
+64,hirticollis_couleensis,1,1,0.0,0.0,0,0,1,
+65,hirticollis_gravida,7,1,0.0,0.0,0,0,1,
+70,hornii,4,1,0.0,0.0,0,0,1,
+73,hydrophoba,4,1,0.0,0.0,0,0,1,
+74,hydrophoba_tarentana,1,1,0.0,0.0,0,0,1,
+76,ismenia,1,1,0.0,0.0,0,0,1,
+77,japana,4,1,0.0,0.0,0,0,1,
+83,lengi_versuta,3,1,0.0,0.0,0,0,1,formosa (1)
+89,littoralis_nemoralis,4,1,0.0,0.0,0,0,1,
+95,lurida,4,1,0.0,0.0,0,0,1,
+98,maritima,7,1,0.0,0.0,0,0,1,
+99,maroccana,1,1,0.0,0.0,0,0,1,
+102,nebuligera,2,1,0.0,0.0,0,0,1,
+103,neumanni,1,1,0.0,0.0,0,0,1,
+106,nysa,1,1,0.0,0.0,0,0,1,
+114,octonotata,1,1,0.0,0.0,0,0,1,
+120,parowana,5,1,0.0,0.0,0,0,1,willistoni (1)
+121,parowana_parowana,4,1,0.0,0.0,0,0,1,willistoni (1)
+122,plumigera,2,1,0.0,0.0,0,0,1,
+124,politula,1,1,0.0,0.0,0,0,1,
+133,radians,1,1,0.0,0.0,0,0,1,limbata (1)
+136,roseiventris,1,1,0.0,0.0,0,0,1,
+140,rufoaenea,3,1,0.0,0.0,0,0,1,
+141,rugatilis,4,1,0.0,0.0,0,0,1,
+143,sanguineomaculata,3,1,0.0,0.0,0,0,1,
+146,scutellaris_flavoviridis,2,1,0.0,0.0,0,0,1,
+152,scutellaris_yampae,1,1,0.0,0.0,0,0,1,
+155,sedecimpunctata_sallei,3,1,0.0,0.0,0,0,1,
+164,sturmi,1,1,0.0,0.0,0,0,1,
+166,sylvatica_fasciatopunctata,1,1,0.0,0.0,0,0,1,
+169,tenuicincta,2,1,0.0,0.0,0,0,1,
+174,tranquebarica_kirbyi,4,1,0.0,0.0,0,0,1,
+184,varians,2,1,0.0,0.0,0,0,1,
+187,waynei,3,1,0.0,0.0,0,0,1,"limbata (1), limbata_limbata (1)"
+191,willistoni_pseudosenilis,3,1,0.0,0.0,0,0,1,
+192,willistoni_willistoni,3,1,0.0,0.0,0,0,1,

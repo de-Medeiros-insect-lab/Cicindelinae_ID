@@ -158,8 +158,8 @@ precision_recall_plot <- ggplot() +
     breaks = c(1, 10, 100, max(plot_data$training_specimens)),
     guide = 'none'
   ) +
-  scale_x_continuous(labels = scales::percent) +
-  scale_y_continuous(labels = scales::percent) +
+  scale_x_continuous(labels = scales::percent, breaks = seq(0,1,by=.25), limits=c(-0.03,1.03)) +
+  scale_y_continuous(labels = scales::percent, breaks = seq(0,1,by=.25), limits=c(-0.03,1.03)) +
   ggtitle("Precision and Recall") +
   xlab("Recall") +
   ylab("Precision") +
@@ -169,6 +169,7 @@ precision_recall_plot <- ggplot() +
 # Display the plot
 print(precision_recall_plot)
 ```
+
 
 
 ## Performance vs Training Data Size
@@ -337,7 +338,7 @@ p <- cowplot::plot_grid(
   p_AB,
   precision_recall_plot,
   shared_legend,
-  rel_widths = c(1, 1, 0.2),
+  rel_widths = c(0.8, 1, 0.2),
   nrow = 1,
   labels = c("", "C", "")
 )

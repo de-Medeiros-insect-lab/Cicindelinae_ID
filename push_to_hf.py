@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Push FastAI multilabel Cicindela classification model to Hugging Face Hub
+Push FastAI multilabel beetle classification model to Hugging Face Hub.
 
-This script uploads both the FastAI learner and PyTorch model weights to HuggingFace Hub
-for the Cicindela tiger beetle classification project.
+Covers the joint Cicindela + Platydracus taxonomic classifier. Uploads both the
+FastAI learner and PyTorch model weights.
 
 Usage:
     python push_to_hf.py [--model-path MODEL_PATH] [--repo-id REPO_ID]
@@ -23,16 +23,25 @@ from timm.models.hub import push_to_hf_hub
 from timm import create_model
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Push FastAI Cicindela model to Hugging Face Hub')
-    parser.add_argument('--model-path', type=str, 
+    parser = argparse.ArgumentParser(description='Push FastAI beetle classification model to Hugging Face Hub')
+    parser.add_argument('--model-path', type=str,
                        default='exported_fastai_models/eva02_large_patch14_448.mim_m38m_ft_in22k_in1k_ml.pkl',
                        help='Path to the FastAI model pkl file')
-    parser.add_argument('--repo-id', type=str, 
+    parser.add_argument('--repo-id', type=str,
                        default='brunoasm/Cicindella_ID_FMNH',
                        help='HuggingFace repository ID')
     parser.add_argument('--dry-run', action='store_true',
                        help='Print configuration without uploading')
     return parser.parse_args()
+
+
+def classify_label(label):
+    """Return 'genus' / 'species' / 'subspecies' for a vocabulary entry."""
+    if not label:
+        return 'species'
+    if label[:1].isupper():
+        return 'genus'
+    return 'species' if label.count('_') == 1 else 'subspecies'
 
 def extract_vocab_from_learner(learn):
     """Extract the vocabulary/label list from the FastAI learner"""
@@ -52,26 +61,33 @@ def extract_vocab_from_learner(learn):
         print(f"Warning: Could not extract vocabulary: {e}")
         return None
 
-def create_cicindela_config(learn, base_config):
+def create_taxon_config(learn, base_config, repo_id):
     """
-    Create configuration for the Cicindela model based on the base timm config
-    and the trained FastAI learner
+    Create configuration for the multi-genus beetle classifier (Cicindela +
+    Platydracus) based on the base timm config and the trained FastAI learner.
     """
-    # Extract vocabulary from learner
     vocab = extract_vocab_from_learner(learn)
     num_classes = len(vocab) if vocab else len(learn.dls.vocab)
-    
-    # Create the custom configuration
+
+    if vocab:
+        genus_count = sum(1 for l in vocab if classify_label(l) == 'genus')
+        species_count = sum(1 for l in vocab if classify_label(l) == 'species')
+        subspecies_count = sum(1 for l in vocab if classify_label(l) == 'subspecies')
+        genera = sorted(l for l in vocab if classify_label(l) == 'genus')
+    else:
+        genus_count = species_count = subspecies_count = None
+        genera = None
+
     config = {
         "architecture": "eva02_large_patch14_448",
         "num_classes": num_classes,
         "num_features": 1024,
         "global_pool": "avg",
         "pretrained_cfg": {
-            "hf_hub_id": f"brunoasm/Cicindella_ID_FMNH",
-            "source": "hf-hub", 
+            "hf_hub_id": repo_id,
+            "source": "hf-hub",
             "architecture": "hf-hub:timm/eva02_large_patch14_448.mim_m38m_ft_in22k_in1k",
-            "tag": "Cicindela_multilabel_classification",
+            "tag": "Cicindela_Platydracus_multilabel_classification",
             "custom_load": False,
             "input_size": [3, 448, 448],
             "fixed_input_size": True,
@@ -88,15 +104,17 @@ def create_cicindela_config(learn, base_config):
         },
         "model_type": "multilabel_classification",
         "task": "taxonomic_classification",
-        "dataset": "FMNH_Cicindela_specimens",
-        "species_count": len([label for label in vocab if '_' not in label]) if vocab else None,
-        "subspecies_count": len([label for label in vocab if '_' in label]) if vocab else None,
+        "dataset": "FMNH_Cicindela_Platydracus_specimens",
+        "genera": genera,
+        "genus_count": genus_count,
+        "species_count": species_count,
+        "subspecies_count": subspecies_count,
         "label_threshold": 0.5,
         "labels": vocab if vocab else None,
         "training_framework": "fastai",
         "base_model": "eva02_large_patch14_448.mim_m38m_ft_in22k_in1k"
     }
-    
+
     return config
 
 def save_pytorch_model(learn, model_path):
@@ -135,8 +153,9 @@ def main():
     vocab = extract_vocab_from_learner(learn)
     print(f"Model vocabulary size: {len(vocab) if vocab else 'Unknown'}")
     if vocab:
-        print(f"Species labels: {len([l for l in vocab if '_' not in l])}")
-        print(f"Subspecies labels: {len([l for l in vocab if '_' in l])}")
+        print(f"Genus labels:      {sum(1 for l in vocab if classify_label(l) == 'genus')}")
+        print(f"Species labels:    {sum(1 for l in vocab if classify_label(l) == 'species')}")
+        print(f"Subspecies labels: {sum(1 for l in vocab if classify_label(l) == 'subspecies')}")
     
     # Base configuration from the pretrained timm model
     base_config = {
@@ -163,7 +182,7 @@ def main():
     }
     
     # Create custom configuration
-    config = create_cicindela_config(learn, base_config)
+    config = create_taxon_config(learn, base_config, args.repo_id)
     
     if args.dry_run:
         print("\nDry run - Configuration that would be uploaded:")
@@ -198,7 +217,7 @@ def main():
         push_to_hub_fastai(
             learner=learn, 
             repo_id=args.repo_id,
-            commit_message="Upload Cicindela multilabel classification model (FastAI)"
+            commit_message="Upload Cicindela+Platydracus multilabel classification model (FastAI)"
         )
         
         # Upload additional files using HfApi

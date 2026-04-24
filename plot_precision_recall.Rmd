@@ -122,8 +122,7 @@ precision_recall_plot <- ggplot() +
   scale_color_viridis_c(
     trans = 'log10',
     name = "Specimens\nin training",
-    breaks = c(1, 10, 100, max(plot_data$training_specimens)),
-    guide = 'none'
+    breaks = c(1, 10, 100, max(plot_data$training_specimens))
   ) +
   scale_x_continuous(labels = scales::percent, breaks = seq(0,1,by=.25), limits=c(-0.03,1.03)) +
   scale_y_continuous(labels = scales::percent, breaks = seq(0,1,by=.25), limits=c(-0.03,1.03)) +
@@ -251,7 +250,20 @@ f1_plot
 ## Combined Performance Visualization
 
 ```{r extract-legend}
-shared_legend <- get_legend(f1_plot)
+legend_AB <- get_legend(
+  f1_plot + theme(
+    legend.position = 'bottom',
+    legend.box = 'vertical',
+    legend.box.spacing = unit(0, 'pt'),
+    legend.spacing.y = unit(-4, 'pt'),
+    legend.margin = margin(0, 0, 0, 0)
+  )
+)
+legend_C  <- get_legend(
+  precision_recall_plot +
+    theme(legend.position = 'bottom', legend.box = 'horizontal') +
+    guides(color = guide_colorbar(barwidth = 8, barheight = 0.6))
+)
 ```
 
 ```{r combine-plots, fig.width=11, fig.height=6}
@@ -264,13 +276,26 @@ p_AB <- cowplot::plot_grid(
   axis = 'lrtb'
 )
 
-p <- cowplot::plot_grid(
+top_row <- cowplot::plot_grid(
   p_AB,
-  precision_recall_plot,
-  shared_legend,
-  rel_widths = c(0.8, 1.2, 0.25),
+  precision_recall_plot + theme(legend.position = 'none'),
+  rel_widths = c(0.8, 1.2),
   nrow = 1,
-  labels = c("", "C", "")
+  labels = c("", "C")
+)
+
+legend_row <- cowplot::plot_grid(
+  legend_AB,
+  legend_C,
+  rel_widths = c(0.8, 1.2),
+  nrow = 1
+)
+
+p <- cowplot::plot_grid(
+  top_row,
+  legend_row,
+  ncol = 1,
+  rel_heights = c(1, 0.14)
 )
 
 p

@@ -81,7 +81,7 @@ plot_averages <- summary_stats %>%
   )
 
 print("Summary Statistics by Genus and Taxonomic Level:")
-print(summary_stats)
+summary_stats
 ```
 
 ## Precision-Recall Visualization (faceted by genus)

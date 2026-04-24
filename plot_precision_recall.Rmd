@@ -86,9 +86,17 @@ summary_stats
 
 ## Precision-Recall Visualization (faceted by genus)
 
+Genus-level classification is perfect for both *Cicindela* and *Platydracus* (precision = recall = 100%), so we omit it from the figures below and note it in text.
+
 ```{r prepare-plot-data}
 plot_data <- performance_data %>%
+  filter(taxonomic_level != "genus") %>%
+  mutate(taxonomic_level = droplevels(taxonomic_level)) %>%
   arrange(desc(training_specimens))
+
+plot_averages_sub <- plot_averages %>%
+  filter(taxonomic_level != "genus") %>%
+  mutate(taxonomic_level = droplevels(taxonomic_level))
 ```
 
 ```{r precision-recall-plot, fig.width=8, fig.height=5}
@@ -101,7 +109,7 @@ precision_recall_plot <- ggplot() +
     alpha = 0.4
   ) +
   geom_point(
-    data = plot_averages,
+    data = plot_averages_sub,
     aes(y = precision, x = recall, shape = weighted),
     size = 3
   ) +

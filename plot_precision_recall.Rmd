@@ -207,9 +207,16 @@ f1_plot <- ggplot(plot_data) +
   geom_smooth(
     aes(x = training_specimens, y = f1),
     method = "loess",
-    span = 0.5,
+    span = 0.6,
     se = FALSE,
     color = gray(0.8)
+  ) +
+    geom_smooth(
+    aes(x = training_specimens, y = f1, group=genus,color=genus),
+    method = "loess",
+    span = 0.6,
+    se = FALSE,
+    alpha=0.2,
   ) +
   geom_jitter(
     aes(x = training_specimens, y = f1, color = genus, shape = taxonomic_level),

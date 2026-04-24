@@ -19,6 +19,8 @@ dependencies:
   - r-tidyverse
   - r-scales
   - r-rmarkdown
+  # Additional dependencies for analysis
+  - plotly
   - pip:
     - --index-url https://download.pytorch.org/whl/cu126
     - --extra-index-url https://pypi.org/simple
@@ -35,4 +37,8 @@ dependencies:
     - ipywidgets
     - nbclassic
     - ipython
+    # Hugging Face and model deployment
+    - huggingface_hub
+    # Additional utilities
+    - pathlib
 prefix: /home/bdemedeiros/software/miniconda3/envs/fastai

@@ -22,7 +22,7 @@ library(ggthemes)
 library(cowplot)
 ```
 
-The exported CSV (`test_results_<arch>.csv`) carries a `genus` column and a `taxonomic_level` column computed by the notebook. We recompute `taxonomic_level` here defensively (in case the CSV is older), using the label-format rule: capitalized → genus, exactly one `_` → species, two or more `_` → subspecies.
+The exported CSV (`test_results_<arch>.csv`) carries a `genus` column and a `taxonomic_level` column computed by the notebook. We recompute `taxonomic_level` here defensively (in case the CSV is older), using the label-format rule: capitalized → genus, `<genus>group_<group>` → species_group, exactly one `_` → species, two or more `_` → subspecies.
 
 ```{r data-processing}
 performance_data <- read_csv("test_results_eva02_large_patch14_448.mim_m38m_ft_in22k_in1k.csv") %>%
@@ -30,10 +30,11 @@ performance_data <- read_csv("test_results_eva02_large_patch14_448.mim_m38m_ft_i
     across(starts_with('micro'), ~ .x / 100),
     taxonomic_level = case_when(
       str_detect(Term, "^[A-Z]") ~ "genus",
+      str_detect(Term, "^[a-z]+group_") ~ "species_group",
       str_count(Term, "_") == 1 ~ "species",
       TRUE ~ "subspecies"
     ),
-    taxonomic_level = factor(taxonomic_level, levels = c("genus", "species", "subspecies")),
+    taxonomic_level = factor(taxonomic_level, levels = c("genus", "species_group", "species", "subspecies")),
     f1 = true_positives / (true_positives + (false_positives + false_negatives) / 2)
   ) %>%
   rename(

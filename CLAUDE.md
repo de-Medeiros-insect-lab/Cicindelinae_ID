@@ -23,13 +23,20 @@ conda activate fastai
 
 ### Label scheme
 
-Each specimen carries a multilabel set of 2 or 3 entries:
+Each specimen carries a multilabel set of 2–4 entries:
 
 - **Genus** (capitalized): `Cicindela`, `Platydracus`.
+- **Species group** (`<genus>group_<group>`, e.g. `platydracusgroup_femoratus`). Added automatically when the genus directory contains `species_groups.csv` (currently only Platydracus). Cicindela rows carry no group label.
 - **Species** (genus-prefixed, lowercase, exactly one `_`): `cicindela_repanda`, `platydracus_angusticeps`.
 - **Subspecies** (genus-prefixed, two or more `_`): `cicindela_repanda_repanda`. Hybrid folder names (≥2 `_` after the prefix) also land here.
 
-`taxonomic_level(label)` implements the rule: capitalized → genus; one `_` → species; ≥2 `_` → subspecies.
+`taxonomic_level(label)` implements the rule: capitalized → genus; `<genus>group_…` → species_group; one `_` → species; ≥2 `_` → subspecies.
+
+### Species groups
+
+`images/Platydracus/species_groups.csv` (`full_taxonomy,species_group,notes`) maps each Platydracus binomial/trinomial to one of 14 morphologically diagnosable groups. The notebook loads it into the `SPECIES_GROUPS` dict at startup; `extract_labels()` appends the matching group label automatically.
+
+Three *Platydracus femoratus*-group specimens whose species identity (*P. championi* vs *P. sallaei*) cannot be resolved from images alone are stored in `unknowns/championi-or-sallaei/` and treated as unknowns alongside the unlabeled *Cicindela* specimens at the end of the notebook.
 
 ### Model Training Pipeline
 

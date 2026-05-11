@@ -1,274 +1,274 @@
 Term,genus,taxonomic_level,N_train,N,micro_precision,micro_recall,true_positives,false_positives,false_negatives,confused_with
-Cicindela,Cicindela,genus,4883,829,100.0,99.51749095295537,825,0,4,"cicindela_repanda_repanda (22), cicindela_punctulata_punctulata (22), cicindela_repanda (12), cicindela_tranquebarica_tranquebarica (12), cicindela_trifasciata_sigmoidea (7), cicindela_hemorrhagica (7), cicindela_hemorrhagica_hemorrhagica (7), cicindela_oregona_oregona (6), cicindela_formosa_formosa (6), cicindela_oregona (5), Platydracus (4), cicindela_longilabris (4), cicindela_formosa_generosa (4), cicindela_sylvatica_sylvatica (3), cicindela_trifasciata (3), cicindela_hirticollis_hirticollis (3), cicindela_longilabris_perviridis (3), cicindela_scutellaris_lecontei (3), cicindela_campestris_campestris (3), cicindela_campestris (3), cicindela_ocellata_ocellata (3), cicindela_limbalis (2), cicindela_oregona_maricopa (2), cicindela_sexguttata (2), cicindela_scutellaris (2), cicindela_sedecimpunctata_sedecimpunctata (2), cicindela_formosa (2), cicindela_limbata (2), cicindela_purpurea_audubonii (2), cicindela_trifasciata_ascendens (2), cicindela_hirticollis (2), cicindela_rufiventris (2), cicindela_trifasciata_peruviana (2), cicindela_sylvatica (1), cicindela_scutellaris_scutellaris (1), cicindela_sedecimpunctata (1), cicindela_fulgida_fulgida (1), cicindela_depressula (1), cicindela_tranquebarica (1), cicindela_aurulenta (1), cicindela_rufiventris_rufiventris (1), cicindela_carthagena (1), cicindela_carthagena_carthagena (1), cicindela_chinensis (1), cicindela_limbata_limbata (1), cicindela_angulata (1), cicindela_angulata_angulata (1), cicindela_punctulata (1)"
-cicindela_ocellata,Cicindela,species,200,30,100.0,90.0,27,0,3,"cicindela_ocellata_ocellata (3), cicindela_hemorrhagica (2), cicindela_sedecimpunctata (1), cicindela_sedecimpunctata_sedecimpunctata (1), cicindela_hemorrhagica_hemorrhagica (1)"
-cicindela_purpurea,Cicindela,species,125,22,100.0,90.9090909090909,20,0,2,"cicindela_purpurea_audubonii (2), cicindela_limbalis (1)"
-cicindela_ocellata_rectilatera,Cicindela,subspecies,99,15,100.0,80.0,12,0,3,"cicindela_ocellata_ocellata (3), cicindela_hemorrhagica (1), cicindela_hemorrhagica_hemorrhagica (1)"
-cicindela_obsoleta,Cicindela,species,68,14,100.0,64.28571428571429,9,0,5,
-platydracus_fervidus_fervidus,Platydracus,subspecies,101,14,100.0,100.0,14,0,0,
-cicindela_duodecimguttata,Cicindela,species,86,13,100.0,23.076923076923077,3,0,10,"cicindela_oregona (5), cicindela_oregona_oregona (1), cicindela_repanda (1)"
-platydracusgroup_caliginosus,Platydracus,species_group,83,13,100.0,46.15384615384615,6,0,7,platydracusgroup_tomentosus (2)
-cicindela_splendida,Cicindela,species,77,12,100.0,100.0,12,0,0,cicindela_limbalis (1)
-platydracus_fervidus_memnonius,Platydracus,subspecies,87,12,100.0,58.333333333333336,7,0,5,platydracusgroup_buquetii (1)
-cicindela_hybrida,Cicindela,species,69,11,100.0,81.81818181818183,9,0,2,
-cicindela_fulgida,Cicindela,species,48,8,100.0,100.0,8,0,0,cicindela_fulgida_fulgida (1)
-cicindela_hirticollis_rhodensis,Cicindela,subspecies,56,8,100.0,50.0,4,0,4,"cicindela_repanda (3), cicindela_repanda_repanda (1)"
-platydracus_caliginosus,Platydracus,species,53,8,100.0,12.5,1,0,7,platydracusgroup_tomentosus (1)
+Cicindela,Cicindela,genus,4883,829,100.0,99.87937273823884,828,0,1,"cicindela_punctulata_punctulata (40), cicindela_repanda_repanda (19), cicindela_oregona_oregona (16), cicindela_oregona (10), cicindela_longilabris_perviridis (10), cicindela_tranquebarica_tranquebarica (10), platydracus_ferox (10), cicindela_longilabris (8), cicindela_nigrocoerulea_bowditchi (7), platydracus_buqueti (7), platydracus_championi (7), cicindela_sedecimpunctata_nigroconfluens (6), cicindela_aulica (6), cicindela_decemguttata (6), cicindela_decemguttata_decemguttata (6), cicindela_tranquebarica_sierra (6), cicindela_trifasciata_trifasciata (6), cicindela_hybrida (5), platydracus_pluvius (5), platydracusgroup_caliginosus (5), platydracusgroup_femoratus (5), cicindela_hirticollis_hirticollis (4), cicindela_punctulata (4), cicindela_ocellata_rectilatera (4), cicindela_campestris_campestris (4), cicindela_formosa_formosa (4), cicindela_limbalis (3), cicindela_oregona_maricopa (3), cicindela_sexguttata (3), cicindela_hemorrhagica (3), cicindela_hemorrhagica_hemorrhagica (3), cicindela_purpurea_purpurea (3), cicindela_nigrocoerulea (3), cicindela_whithillii (3), cicindela_sedecimpunctata_sedecimpunctata (2), cicindela_limbata (2), cicindela_splendida (2), cicindela_sylvatica_sylvatica (2), cicindela_chinensis (2), cicindela_rufiventris_rufiventris (2), cicindela_purpurea (2), cicindela_clarina (2), cicindela_nigrocoerulea_nigrocoerulea (2), cicindela_scutellaris_rugata (1), cicindela_sylvatica (1), cicindela_scutellaris (1), cicindela_scutellaris_lecontei (1), cicindela_sedecimpunctata (1), cicindela_purpurea_audubonii (1), cicindela_campestris (1), cicindela_trifasciata_ascendens (1), cicindela_depressula (1), Platydracus (1), cicindela_tranquebarica (1), cicindela_rufiventris (1), cicindela_limbata_limbata (1), cicindela_lugens (1), cicindela_angulata (1), cicindela_angulata_angulata (1)"
+cicindela_repanda,Cicindela,species,501,73,100.0,98.63013698630137,72,0,1,cicindela_repanda_repanda (19)
+cicindela_formosa,Cicindela,species,276,42,100.0,100.0,42,0,0,cicindela_formosa_formosa (4)
+cicindela_ocellata,Cicindela,species,200,30,100.0,83.33333333333334,25,0,5,"cicindela_hemorrhagica (2), cicindela_ocellata_rectilatera (2), cicindela_sedecimpunctata (1), cicindela_sedecimpunctata_sedecimpunctata (1), cicindela_hemorrhagica_hemorrhagica (1)"
+cicindela_trifasciata,Cicindela,species,188,30,100.0,96.66666666666667,29,0,1,"cicindela_trifasciata_ascendens (1), cicindela_punctulata (1)"
+platydracus_fervidus,Platydracus,species,218,30,100.0,93.33333333333333,28,0,2,"platydracusgroup_buquetii (1), platydracus_fervidus_fervidus (1), platydracusgroup_femoratus (1)"
+cicindela_hirticollis,Cicindela,species,176,29,100.0,100.0,29,0,0,cicindela_hirticollis_hirticollis (4)
+cicindela_formosa_generosa,Cicindela,subspecies,191,28,100.0,92.85714285714286,26,0,2,cicindela_formosa_formosa (2)
+cicindela_ocellata_ocellata,Cicindela,subspecies,101,15,100.0,73.33333333333333,11,0,4,"cicindela_ocellata_rectilatera (2), cicindela_hemorrhagica (1), cicindela_sedecimpunctata (1), cicindela_sedecimpunctata_sedecimpunctata (1)"
+cicindela_obsoleta,Cicindela,species,68,14,100.0,92.85714285714286,13,0,1,cicindela_punctulata (1)
+cicindela_duodecimguttata,Cicindela,species,86,13,100.0,53.84615384615385,7,0,6,"cicindela_oregona (7), cicindela_oregona_oregona (2)"
+platydracus_fervidus_memnonius,Platydracus,subspecies,87,12,100.0,91.66666666666666,11,0,1,platydracusgroup_buquetii (1)
+platydracusgroup_mexicanus,Platydracus,species_group,82,12,100.0,91.66666666666666,11,0,1,platydracusgroup_tomentosus (1)
+platydracus_mexicanus,Platydracus,species,75,11,100.0,100.0,11,0,0,
+cicindela_fulgida,Cicindela,species,48,8,100.0,100.0,8,0,0,
+cicindela_hirticollis_rhodensis,Cicindela,subspecies,56,8,100.0,50.0,4,0,4,cicindela_hirticollis_hirticollis (3)
+platydracus_caliginosus,Platydracus,species,53,8,100.0,25.0,2,0,6,platydracusgroup_maculosus (1)
 platydracus_gracilipes,Platydracus,species,58,8,100.0,87.5,7,0,1,"platydracus_femoratus (1), platydracusgroup_femoratus (1)"
 cicindela_concolor,Cicindela,species,44,7,100.0,100.0,7,0,0,
-cicindela_scutellaris_rugifrons,Cicindela,subspecies,42,7,100.0,42.857142857142854,3,0,4,
+cicindela_fulgida_fulgida,Cicindela,subspecies,42,7,100.0,100.0,7,0,0,
+cicindela_scutellaris_rugifrons,Cicindela,subspecies,42,7,100.0,100.0,7,0,0,cicindela_sexguttata (1)
+cicindela_scutellaris_scutellaris,Cicindela,subspecies,46,7,100.0,85.71428571428571,6,0,1,
 cicindela_willistoni,Cicindela,species,42,7,100.0,100.0,7,0,0,
-platydracus_phoenicurus,Platydracus,species,47,7,100.0,28.57142857142857,2,0,5,
-cicindela_bellissima,Cicindela,species,36,6,100.0,66.66666666666666,4,0,2,
-cicindela_lacrymosa,Cicindela,species,33,6,100.0,0.0,0,0,6,
-cicindela_latesignata,Cicindela,species,34,6,100.0,100.0,6,0,0,cicindela_formosa (1)
+platydracus_phoenicurus,Platydracus,species,47,7,100.0,42.857142857142854,3,0,4,
+cicindela_bellissima,Cicindela,species,36,6,100.0,100.0,6,0,0,
+cicindela_lacrymosa,Cicindela,species,33,6,100.0,83.33333333333334,5,0,1,cicindela_sedecimpunctata_sedecimpunctata (1)
+cicindela_latesignata,Cicindela,species,34,6,100.0,100.0,6,0,0,
 cicindela_tenuisignata,Cicindela,species,38,6,100.0,100.0,6,0,0,
-cicindela_tranquebarica_vibex,Cicindela,subspecies,34,6,100.0,66.66666666666666,4,0,2,cicindela_tranquebarica_tranquebarica (4)
+cicindela_tranquebarica_vibex,Cicindela,subspecies,34,6,100.0,66.66666666666666,4,0,2,cicindela_tranquebarica_tranquebarica (3)
 platydracus_sepulchralis,Platydracus,species,42,6,100.0,0.0,0,0,6,
-platydracusgroup_centralis,Platydracus,species_group,41,6,100.0,0.0,0,0,6,
-platydracusgroup_fossator,Platydracus,species_group,43,6,100.0,16.666666666666664,1,0,5,"platydracus_mexicanus (2), platydracusgroup_mexicanus (1)"
-cicindela_decemguttata,Cicindela,species,23,5,100.0,80.0,4,0,1,cicindela_scutellaris_lecontei (1)
-cicindela_lengi,Cicindela,species,27,5,100.0,100.0,5,0,0,cicindela_formosa (1)
-cicindela_nigrocoerulea,Cicindela,species,29,5,100.0,100.0,5,0,0,"cicindela_punctulata (1), cicindela_scutellaris (1)"
-cicindela_nigrocoerulea_nigrocoerulea,Cicindela,subspecies,28,5,100.0,100.0,5,0,0,"cicindela_punctulata (1), cicindela_scutellaris (1)"
-cicindela_obsoleta_obsoleta,Cicindela,subspecies,26,5,100.0,20.0,1,0,4,
-cicindela_purpurea_purpurea,Cicindela,subspecies,27,5,100.0,0.0,0,0,5,cicindela_purpurea_audubonii (1)
-cicindela_sylvicola,Cicindela,species,25,5,100.0,0.0,0,0,5,cicindela_depressula (1)
-cicindela_willistoni_echo,Cicindela,subspecies,35,5,100.0,80.0,4,0,1,
-platydracus_championi,Platydracus,species,33,5,100.0,60.0,3,0,2,
-platydracus_ignotus,Platydracus,species,33,5,100.0,0.0,0,0,5,platydracus_femoratus (1)
-platydracus_mendicus,Platydracus,species,38,5,100.0,20.0,1,0,4,
-platydracus_optatus,Platydracus,species,35,5,100.0,0.0,0,0,5,
-cicindela_batesi,Cicindela,species,24,4,100.0,50.0,2,0,2,cicindela_aurulenta (1)
-cicindela_hirticollis_shelfordi,Cicindela,subspecies,22,4,100.0,0.0,0,0,4,cicindela_hirticollis_hirticollis (2)
+platydracusgroup_fossator,Platydracus,species_group,43,6,100.0,33.33333333333333,2,0,4,"platydracus_centralis (1), platydracusgroup_centralis (1)"
+cicindela_lengi,Cicindela,species,27,5,100.0,80.0,4,0,1,
+cicindela_obsoleta_obsoleta,Cicindela,subspecies,26,5,100.0,40.0,2,0,3,cicindela_punctulata (1)
+cicindela_sylvicola,Cicindela,species,25,5,100.0,20.0,1,0,4,"cicindela_hybrida (2), cicindela_depressula (1)"
+cicindela_trifasciata_sigmoidea,Cicindela,subspecies,32,5,100.0,0.0,0,0,5,
+cicindela_willistoni_echo,Cicindela,subspecies,35,5,100.0,100.0,5,0,0,
+platydracus_ignotus,Platydracus,species,33,5,100.0,0.0,0,0,5,platydracus_femoratus (5)
+platydracus_optatus,Platydracus,species,35,5,100.0,40.0,2,0,3,platydracus_mendicus (1)
+cicindela_aurulenta,Cicindela,species,22,4,100.0,75.0,3,0,1,
+cicindela_batesi,Cicindela,species,24,4,100.0,50.0,2,0,2,cicindela_chinensis (1)
+cicindela_carthagena,Cicindela,species,21,4,100.0,100.0,4,0,0,
+cicindela_carthagena_carthagena,Cicindela,subspecies,20,4,100.0,100.0,4,0,0,
+cicindela_hirticollis_shelfordi,Cicindela,subspecies,22,4,100.0,0.0,0,0,4,cicindela_hirticollis_hirticollis (1)
 cicindela_lengi_lengi,Cicindela,subspecies,24,4,100.0,100.0,4,0,0,
-cicindela_nebraskana,Cicindela,species,21,4,100.0,50.0,2,0,2,"cicindela_longilabris (3), cicindela_longilabris_perviridis (1)"
+cicindela_nebraskana,Cicindela,species,21,4,100.0,25.0,1,0,3,"cicindela_longilabris (3), cicindela_longilabris_perviridis (2)"
 cicindela_oregona_guttifera,Cicindela,subspecies,22,4,100.0,0.0,0,0,4,cicindela_oregona_oregona (4)
-platydracus_arinemexus,Platydracus,species,30,4,100.0,0.0,0,0,4,platydracus_fervidus (2)
-platydracus_buqueti,Platydracus,species,24,4,100.0,0.0,0,0,4,platydracusgroup_cyanomelas (1)
-platydracus_centralis,Platydracus,species,29,4,100.0,0.0,0,0,4,
+platydracus_arinemexus,Platydracus,species,30,4,100.0,100.0,4,0,0,
 platydracus_discors,Platydracus,species,32,4,100.0,0.0,0,0,4,
-platydracus_ferox,Platydracus,species,25,4,100.0,0.0,0,0,4,
-platydracus_fervidus_stercopsis,Platydracus,subspecies,30,4,100.0,0.0,0,0,4,platydracusgroup_femoratus (1)
-platydracus_pluvius,Platydracus,species,30,4,100.0,0.0,0,0,4,
-platydracus_quernus,Platydracus,species,25,4,100.0,100.0,4,0,0,
-platydracusgroup_apicipennis,Platydracus,species_group,28,4,100.0,25.0,1,0,3,
-platydracusgroup_cinnamopterus,Platydracus,species_group,25,4,100.0,75.0,3,0,1,
-platydracusgroup_maculosus,Platydracus,species_group,27,4,100.0,75.0,3,0,1,"platydracusgroup_buquetii (1), platydracusgroup_fuscomaculatus (1)"
-cicindela_abdominalis,Cicindela,species,21,3,100.0,100.0,3,0,0,
-cicindela_ancocisconensis,Cicindela,species,15,3,100.0,0.0,0,0,3,cicindela_repanda (1)
-cicindela_decemguttata_durvillei,Cicindela,subspecies,17,3,100.0,100.0,3,0,0,cicindela_scutellaris_lecontei (1)
+platydracus_fervidus_stercopsis,Platydracus,subspecies,30,4,100.0,0.0,0,0,4,"platydracus_fervidus_fervidus (1), platydracusgroup_femoratus (1)"
+platydracus_quernus,Platydracus,species,25,4,100.0,75.0,3,0,1,
+platydracusgroup_apicipennis,Platydracus,species_group,28,4,100.0,50.0,2,0,2,platydracusgroup_caliginosus (1)
+platydracusgroup_cinnamopterus,Platydracus,species_group,25,4,100.0,75.0,3,0,1,platydracusgroup_buquetii (1)
+cicindela_abdominalis,Cicindela,species,21,3,100.0,100.0,3,0,0,cicindela_punctulata (1)
+cicindela_ancocisconensis,Cicindela,species,15,3,100.0,66.66666666666666,2,0,1,
+cicindela_decemguttata_durvillei,Cicindela,subspecies,17,3,100.0,100.0,3,0,0,
 cicindela_hybrida_hybrida,Cicindela,subspecies,18,3,100.0,0.0,0,0,3,
-cicindela_limbata_nympha,Cicindela,subspecies,12,3,100.0,66.66666666666666,2,0,1,
-cicindela_longilabris_laurentii,Cicindela,subspecies,11,3,100.0,0.0,0,0,3,
-cicindela_longilabris_longilabris,Cicindela,subspecies,15,3,100.0,0.0,0,0,3,
+cicindela_limbata_nympha,Cicindela,subspecies,12,3,100.0,100.0,3,0,0,
+cicindela_longilabris_laurentii,Cicindela,subspecies,11,3,100.0,33.33333333333333,1,0,2,
+cicindela_longilabris_longilabris,Cicindela,subspecies,15,3,100.0,0.0,0,0,3,cicindela_longilabris_perviridis (2)
 cicindela_lunulata,Cicindela,species,18,3,100.0,0.0,0,0,3,
-cicindela_obsoleta_vulturina,Cicindela,subspecies,12,3,100.0,0.0,0,0,3,
+cicindela_obsoleta_vulturina,Cicindela,subspecies,12,3,100.0,33.33333333333333,1,0,2,
 cicindela_pulchra,Cicindela,species,15,3,100.0,100.0,3,0,0,
 cicindela_quadripunctulata,Cicindela,species,17,3,100.0,100.0,3,0,0,
 cicindela_scutellaris_lecontei_x_scutellaris_scutellaris,Cicindela,subspecies,9,3,100.0,100.0,3,0,0,
-cicindela_scutellaris_rugata,Cicindela,subspecies,15,3,100.0,100.0,3,0,0,
-platydracus_apicipennis,Platydracus,species,23,3,100.0,0.0,0,0,3,
-platydracus_casarum,Platydracus,species,18,3,100.0,0.0,0,0,3,platydracus_fervidus (1)
+cicindela_trifasciata_peruviana,Cicindela,subspecies,13,3,100.0,66.66666666666666,2,0,1,
+platydracus_apicipennis,Platydracus,species,23,3,100.0,66.66666666666666,2,0,1,platydracusgroup_caliginosus (1)
+platydracus_casarum,Platydracus,species,18,3,100.0,0.0,0,0,3,platydracusgroup_caliginosus (1)
 platydracus_dietrichi,Platydracus,species,23,3,100.0,0.0,0,0,3,
 platydracus_discretus,Platydracus,species,23,3,100.0,100.0,3,0,0,
-platydracus_nubilis,Platydracus,species,19,3,100.0,0.0,0,0,3,
-platydracus_salvinianus,Platydracus,species,19,3,100.0,0.0,0,0,3,
-platydracus_violaceus,Platydracus,species,23,3,100.0,100.0,3,0,0,
-platydracusgroup_violaceus,Platydracus,species_group,23,3,100.0,100.0,3,0,0,
-cicindela_amargosae,Cicindela,species,5,2,100.0,0.0,0,0,2,
+platydracus_salvinianus,Platydracus,species,19,3,100.0,0.0,0,0,3,platydracus_nubilis (2)
+platydracus_violaceus,Platydracus,species,23,3,100.0,100.0,3,0,0,platydracusgroup_cyanomelas (1)
+platydracusgroup_violaceus,Platydracus,species_group,23,3,100.0,100.0,3,0,0,platydracusgroup_cyanomelas (1)
+cicindela_amargosae,Cicindela,species,5,2,100.0,0.0,0,0,2,cicindela_rufiventris (1)
 cicindela_arenicola,Cicindela,species,4,2,100.0,0.0,0,0,2,cicindela_limbata (1)
-cicindela_cincta,Cicindela,species,8,2,100.0,50.0,1,0,1,
-cicindela_compressicornis,Cicindela,species,4,2,100.0,0.0,0,0,2,
-cicindela_cyaniventris,Cicindela,species,10,2,100.0,0.0,0,0,2,
-cicindela_decemguttata_decemguttata,Cicindela,subspecies,6,2,100.0,0.0,0,0,2,
-cicindela_decemnotata,Cicindela,species,6,2,100.0,0.0,0,0,2,
-cicindela_denverensis,Cicindela,species,8,2,100.0,0.0,0,0,2,cicindela_campestris (1)
-cicindela_depressula_depressula,Cicindela,subspecies,8,2,100.0,0.0,0,0,2,
+cicindela_cincta,Cicindela,species,8,2,100.0,0.0,0,0,2,
+cicindela_compressicornis,Cicindela,species,4,2,100.0,50.0,1,0,1,
+cicindela_cyaniventris,Cicindela,species,10,2,100.0,0.0,0,0,2,cicindela_clarina (2)
+cicindela_decemnotata,Cicindela,species,6,2,100.0,50.0,1,0,1,cicindela_limbalis (1)
+cicindela_denverensis,Cicindela,species,8,2,100.0,50.0,1,0,1,
+cicindela_depressula_depressula,Cicindela,subspecies,8,2,100.0,0.0,0,0,2,"cicindela_longilabris (1), cicindela_oregona (1), cicindela_oregona_oregona (1)"
 cicindela_fimbriata,Cicindela,species,3,2,100.0,100.0,2,0,0,
-cicindela_fischeri,Cicindela,species,6,2,100.0,50.0,1,0,1,
+cicindela_fischeri,Cicindela,species,6,2,100.0,0.0,0,0,2,
 cicindela_gallica,Cicindela,species,11,2,100.0,100.0,2,0,0,
 cicindela_hemorrhagica_arizonae,Cicindela,subspecies,7,2,100.0,0.0,0,0,2,cicindela_hemorrhagica_hemorrhagica (1)
-cicindela_hirticollis_corpuscula,Cicindela,subspecies,5,2,100.0,0.0,0,0,2,cicindela_repanda (1)
+cicindela_hirticollis_corpuscula,Cicindela,subspecies,5,2,100.0,0.0,0,0,2,
 cicindela_hirticollis_siuslawensis,Cicindela,subspecies,8,2,100.0,0.0,0,0,2,
 cicindela_littoralis,Cicindela,species,7,2,100.0,0.0,0,0,2,
-cicindela_luteolineata,Cicindela,species,4,2,100.0,50.0,1,0,1,
-cicindela_marginipennis,Cicindela,species,5,2,100.0,0.0,0,0,2,
-cicindela_miseranda,Cicindela,species,5,2,100.0,50.0,1,0,1,
+cicindela_luteolineata,Cicindela,species,4,2,100.0,0.0,0,0,2,
+cicindela_marginipennis,Cicindela,species,5,2,100.0,100.0,2,0,0,
+cicindela_miseranda,Cicindela,species,5,2,100.0,100.0,2,0,0,
 cicindela_obsoleta_santeclarae,Cicindela,subspecies,5,2,100.0,0.0,0,0,2,
 cicindela_papillosa,Cicindela,species,6,2,100.0,50.0,1,0,1,
 cicindela_plutonica,Cicindela,species,8,2,100.0,0.0,0,0,2,
 cicindela_purpurea_cimarrona,Cicindela,subspecies,7,2,100.0,0.0,0,0,2,
-cicindela_rufiventris_heutzii,Cicindela,subspecies,6,2,100.0,0.0,0,0,2,cicindela_rufiventris_rufiventris (1)
-cicindela_sachalinensis,Cicindela,species,5,2,100.0,0.0,0,0,2,"cicindela_sylvatica (1), cicindela_sylvatica_sylvatica (1)"
-cicindela_schauppii,Cicindela,species,4,2,100.0,0.0,0,0,2,cicindela_rufiventris (1)
-cicindela_scutellaris_unicolor,Cicindela,subspecies,6,2,100.0,0.0,0,0,2,cicindela_scutellaris_scutellaris (1)
-cicindela_sedecimpunctata_nigroconfluens,Cicindela,subspecies,6,2,100.0,0.0,0,0,2,
-cicindela_senilis,Cicindela,species,6,2,100.0,0.0,0,0,2,
+cicindela_rufiventris_heutzii,Cicindela,subspecies,6,2,100.0,50.0,1,0,1,cicindela_rufiventris_rufiventris (2)
+cicindela_sachalinensis,Cicindela,species,5,2,100.0,0.0,0,0,2,
+cicindela_schauppii,Cicindela,species,4,2,100.0,50.0,1,0,1,
+cicindela_scutellaris_unicolor,Cicindela,subspecies,6,2,100.0,50.0,1,0,1,cicindela_scutellaris_rugata (1)
+cicindela_senilis,Cicindela,species,6,2,100.0,100.0,2,0,0,
 cicindela_setosomalaris,Cicindela,species,7,2,100.0,0.0,0,0,2,
 cicindela_sexpunctata,Cicindela,species,14,2,100.0,100.0,2,0,0,
-cicindela_soluta,Cicindela,species,8,2,100.0,0.0,0,0,2,
+cicindela_soluta,Cicindela,species,8,2,100.0,0.0,0,0,2,cicindela_hybrida (1)
 cicindela_sommeri,Cicindela,species,11,2,100.0,50.0,1,0,1,
-cicindela_theatina,Cicindela,species,10,2,100.0,50.0,1,0,1,
+cicindela_theatina,Cicindela,species,10,2,100.0,100.0,2,0,0,
 cicindela_tranquebarica_diffracta,Cicindela,subspecies,4,2,100.0,0.0,0,0,2,cicindela_tranquebarica_tranquebarica (2)
-cicindela_trifasciata_trifasciata,Cicindela,subspecies,14,2,100.0,0.0,0,0,2,cicindela_trifasciata_ascendens (1)
-cicindela_vasseletii,Cicindela,species,4,2,100.0,0.0,0,0,2,
+cicindela_vasseletii,Cicindela,species,4,2,100.0,50.0,1,0,1,
 cicindela_virgula,Cicindela,species,5,2,100.0,0.0,0,0,2,
-cicindela_whithillii,Cicindela,species,6,2,100.0,50.0,1,0,1,
 platydracus_angusticeps,Platydracus,species,13,2,100.0,0.0,0,0,2,
 platydracus_castaneus,Platydracus,species,12,2,100.0,0.0,0,0,2,
 platydracus_cinnamopterus,Platydracus,species,13,2,100.0,100.0,2,0,0,
-platydracus_comes,Platydracus,species,13,2,100.0,0.0,0,0,2,
-platydracus_cyanomelas,Platydracus,species,18,2,100.0,0.0,0,0,2,
-platydracus_fossator,Platydracus,species,15,2,100.0,0.0,0,0,2,"platydracus_mexicanus (1), platydracusgroup_mexicanus (1)"
-platydracus_maculosus,Platydracus,species,15,2,100.0,50.0,1,0,1,platydracusgroup_fuscomaculatus (1)
-platydracus_modestus,Platydracus,species,12,2,100.0,0.0,0,0,2,
-platydracus_notatus,Platydracus,species,12,2,100.0,50.0,1,0,1,platydracusgroup_buquetii (1)
-platydracus_nudicollis,Platydracus,species,13,2,100.0,0.0,0,0,2,
-platydracus_pecki,Platydracus,species,15,2,100.0,0.0,0,0,2,platydracus_fervidus (1)
+platydracus_comes,Platydracus,species,13,2,100.0,100.0,2,0,0,
+platydracus_cyanomelas,Platydracus,species,18,2,100.0,0.0,0,0,2,platydracus_mendicus (1)
+platydracus_fossator,Platydracus,species,15,2,100.0,50.0,1,0,1,
+platydracus_maculosus,Platydracus,species,15,2,100.0,100.0,2,0,0,platydracusgroup_fuscomaculatus (1)
+platydracus_modestus,Platydracus,species,12,2,100.0,0.0,0,0,2,platydracusgroup_tomentosus (1)
+platydracus_notatus,Platydracus,species,12,2,100.0,0.0,0,0,2,
+platydracus_nudicollis,Platydracus,species,13,2,100.0,100.0,2,0,0,
+platydracus_pecki,Platydracus,species,15,2,100.0,0.0,0,0,2,
 platydracus_pinorum,Platydracus,species,16,2,100.0,0.0,0,0,2,
-platydracus_pluviasilva,Platydracus,species,11,2,100.0,0.0,0,0,2,
+platydracus_pluviasilva,Platydracus,species,11,2,100.0,0.0,0,0,2,platydracus_femoratus (1)
 platydracus_rusticus,Platydracus,species,12,2,100.0,0.0,0,0,2,
 platydracus_sallaei,Platydracus,species,14,2,100.0,0.0,0,0,2,
-platydracus_viridanus,Platydracus,species,17,2,100.0,50.0,1,0,1,platydracus_mexicanus (1)
+platydracus_viridanus,Platydracus,species,17,2,100.0,50.0,1,0,1,
 cicindela_aeneicollis,Cicindela,species,3,1,100.0,0.0,0,0,1,
-cicindela_alboguttata,Cicindela,species,2,1,100.0,0.0,0,0,1,cicindela_rufiventris (1)
-cicindela_aulica,Cicindela,species,3,1,100.0,0.0,0,0,1,
+cicindela_alboguttata,Cicindela,species,2,1,100.0,0.0,0,0,1,
 cicindela_campestris_pontica,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,cicindela_campestris_campestris (1)
 cicindela_cardoni,Cicindela,species,3,1,100.0,0.0,0,0,1,"cicindela_angulata (1), cicindela_angulata_angulata (1)"
 cicindela_caucasica,Cicindela,species,2,1,100.0,0.0,0,0,1,
 cicindela_chrysippe,Cicindela,species,1,1,100.0,0.0,0,0,1,cicindela_sexguttata (1)
-cicindela_clarina,Cicindela,species,4,1,100.0,0.0,0,0,1,
 cicindela_clypeata,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_coerulea,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_denikei,Cicindela,species,3,1,100.0,0.0,0,0,1,cicindela_sexguttata (1)
 cicindela_depressula_eureka,Cicindela,subspecies,2,1,100.0,0.0,0,0,1,
-cicindela_duponti,Cicindela,species,7,1,100.0,0.0,0,0,1,cicindela_chinensis (1)
-cicindela_equestris,Cicindela,species,7,1,100.0,0.0,0,0,1,
+cicindela_duponti,Cicindela,species,7,1,100.0,100.0,1,0,0,cicindela_chinensis (1)
+cicindela_equestris,Cicindela,species,7,1,100.0,100.0,1,0,0,
 cicindela_fimbriata_fimbriata,Cicindela,subspecies,2,1,100.0,0.0,0,0,1,
 cicindela_fimbriata_imperatrix,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
 cicindela_fischeri_elongatosignata,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,
 cicindela_fischeri_fischeri,Cicindela,subspecies,2,1,100.0,0.0,0,0,1,
 cicindela_flohri,Cicindela,species,2,1,100.0,0.0,0,0,1,
 cicindela_formosa_gibsoni,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,cicindela_formosa_formosa (1)
-cicindela_formosa_pigmentosignata,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,"cicindela_formosa_formosa (1), cicindela_formosa_generosa (1)"
-cicindela_fulgida_westbournei,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,cicindela_fulgida_fulgida (1)
+cicindela_formosa_pigmentosignata,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
+cicindela_fulgida_westbournei,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,
 cicindela_granulata,Cicindela,species,3,1,100.0,0.0,0,0,1,cicindela_longilabris (1)
 cicindela_hamiltoniana,Cicindela,species,4,1,100.0,0.0,0,0,1,
-cicindela_heros,Cicindela,species,3,1,100.0,100.0,1,0,0,cicindela_trifasciata (1)
-cicindela_hirticollis_couleensis,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,cicindela_hirticollis_hirticollis (1)
-cicindela_hirticollis_gravida,Cicindela,subspecies,7,1,100.0,0.0,0,0,1,"cicindela_repanda (1), cicindela_repanda_repanda (1)"
-cicindela_hornii,Cicindela,species,4,1,100.0,100.0,1,0,0,
+cicindela_heros,Cicindela,species,3,1,100.0,100.0,1,0,0,
+cicindela_hirticollis_couleensis,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
+cicindela_hirticollis_gravida,Cicindela,subspecies,7,1,100.0,0.0,0,0,1,
+cicindela_hornii,Cicindela,species,4,1,100.0,0.0,0,0,1,
 cicindela_hydrophoba,Cicindela,species,4,1,100.0,0.0,0,0,1,
 cicindela_hydrophoba_tarentana,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
 cicindela_interrupta,Cicindela,species,4,1,100.0,0.0,0,0,1,
 cicindela_ismenia,Cicindela,species,1,1,100.0,0.0,0,0,1,cicindela_campestris (1)
-cicindela_japana,Cicindela,species,4,1,100.0,0.0,0,0,1,
+cicindela_japana,Cicindela,species,4,1,100.0,0.0,0,0,1,cicindela_sylvatica (1)
 cicindela_lacteola,Cicindela,species,1,1,100.0,0.0,0,0,1,
-cicindela_lengi_versuta,Cicindela,subspecies,3,1,100.0,0.0,0,0,1,cicindela_formosa (1)
+cicindela_lengi_versuta,Cicindela,subspecies,3,1,100.0,0.0,0,0,1,
 cicindela_littoralis_nemoralis,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,
-cicindela_lurida,Cicindela,species,4,1,100.0,0.0,0,0,1,cicindela_tranquebarica (1)
+cicindela_lurida,Cicindela,species,4,1,100.0,0.0,0,0,1,
 cicindela_maritima,Cicindela,species,7,1,100.0,0.0,0,0,1,
 cicindela_maroccana,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_nebuligera,Cicindela,species,2,1,100.0,0.0,0,0,1,
 cicindela_neumanni,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_nysa,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_octonotata,Cicindela,species,1,1,100.0,0.0,0,0,1,
-cicindela_oregona_guttifera_x_oregona_navajoensis,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
+cicindela_oregona_guttifera_x_oregona_navajoensis,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,cicindela_oregona_oregona (1)
 cicindela_parowana,Cicindela,species,5,1,100.0,0.0,0,0,1,
 cicindela_parowana_parowana,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,
 cicindela_plumigera,Cicindela,species,2,1,100.0,0.0,0,0,1,Platydracus (1)
 cicindela_politula,Cicindela,species,1,1,100.0,0.0,0,0,1,
-cicindela_radians,Cicindela,species,1,1,100.0,0.0,0,0,1,Platydracus (1)
+cicindela_radians,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_roseiventris,Cicindela,species,1,1,100.0,0.0,0,0,1,"cicindela_hemorrhagica (1), cicindela_hemorrhagica_hemorrhagica (1)"
-cicindela_rufoaenea,Cicindela,species,3,1,100.0,0.0,0,0,1,cicindela_trifasciata (1)
+cicindela_rufoaenea,Cicindela,species,3,1,100.0,0.0,0,0,1,
 cicindela_rugatilis,Cicindela,species,4,1,100.0,0.0,0,0,1,
 cicindela_sanguineomaculata,Cicindela,species,3,1,100.0,0.0,0,0,1,
 cicindela_scutellaris_flavoviridis,Cicindela,subspecies,2,1,100.0,0.0,0,0,1,
-cicindela_scutellaris_yampae,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,cicindela_scutellaris_lecontei (1)
-cicindela_sedecimpunctata_sallei,Cicindela,subspecies,3,1,100.0,0.0,0,0,1,cicindela_sedecimpunctata_sedecimpunctata (1)
+cicindela_scutellaris_yampae,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
+cicindela_sedecimpunctata_sallei,Cicindela,subspecies,3,1,100.0,0.0,0,0,1,cicindela_sedecimpunctata_nigroconfluens (1)
 cicindela_sturmi,Cicindela,species,1,1,100.0,0.0,0,0,1,
 cicindela_sylvatica_fasciatopunctata,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,cicindela_sylvatica_sylvatica (1)
-cicindela_tenuicincta,Cicindela,species,2,1,100.0,0.0,0,0,1,
-cicindela_tranquebarica_kirbyi,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,cicindela_tranquebarica_tranquebarica (1)
-cicindela_turkestanica,Cicindela,species,2,1,100.0,0.0,0,0,1,cicindela_campestris (1)
-cicindela_turkestanica_turkestanica,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,cicindela_campestris (1)
+cicindela_tenuicincta,Cicindela,species,2,1,100.0,0.0,0,0,1,cicindela_tranquebarica (1)
+cicindela_tranquebarica_kirbyi,Cicindela,subspecies,4,1,100.0,0.0,0,0,1,
+cicindela_turkestanica,Cicindela,species,2,1,100.0,100.0,1,0,0,
+cicindela_turkestanica_turkestanica,Cicindela,subspecies,1,1,100.0,0.0,0,0,1,
 cicindela_varians,Cicindela,species,2,1,100.0,0.0,0,0,1,"cicindela_scutellaris (1), cicindela_scutellaris_lecontei (1)"
 cicindela_waynei,Cicindela,species,3,1,100.0,0.0,0,0,1,"cicindela_limbata (1), cicindela_limbata_limbata (1)"
 cicindela_willistoni_pseudosenilis,Cicindela,subspecies,3,1,100.0,0.0,0,0,1,
 cicindela_willistoni_willistoni,Cicindela,subspecies,3,1,100.0,0.0,0,0,1,
-platydracus_exulans,Platydracus,species,9,1,100.0,0.0,0,0,1,
+platydracus_exulans,Platydracus,species,9,1,100.0,0.0,0,0,1,"platydracus_centralis (1), platydracusgroup_centralis (1)"
 platydracus_funebris,Platydracus,species,5,1,100.0,0.0,0,0,1,platydracusgroup_tomentosus (1)
 platydracus_immaculatus,Platydracus,species,1,1,100.0,0.0,0,0,1,"platydracus_biseriatus (1), platydracusgroup_buquetii (1)"
 platydracus_incognitus,Platydracus,species,5,1,100.0,0.0,0,0,1,
 platydracus_laticeps,Platydracus,species,7,1,100.0,0.0,0,0,1,
-platydracus_occultus,Platydracus,species,9,1,100.0,0.0,0,0,1,
+platydracus_occultus,Platydracus,species,9,1,100.0,0.0,0,0,1,platydracusgroup_tomentosus (1)
 platydracus_potens,Platydracus,species,9,1,100.0,100.0,1,0,0,
 platydracus_praelongus,Platydracus,species,9,1,100.0,0.0,0,0,1,
 platydracus_praetermissus,Platydracus,species,3,1,100.0,0.0,0,0,1,
-platydracus_prasinivariegatus,Platydracus,species,7,1,100.0,0.0,0,0,1,
+platydracus_prasinivariegatus,Platydracus,species,7,1,100.0,100.0,1,0,0,
 platydracus_rutilicauda,Platydracus,species,2,1,100.0,0.0,0,0,1,
 platydracus_sagittifer,Platydracus,species,4,1,100.0,0.0,0,0,1,
 platydracus_tarsalis,Platydracus,species,3,1,100.0,0.0,0,0,1,
 platydracus_temporalis,Platydracus,species,7,1,100.0,0.0,0,0,1,platydracusgroup_tomentosus (1)
 platydracus_tomentosus,Platydracus,species,8,1,100.0,0.0,0,0,1,
 platydracus_vittatus,Platydracus,species,8,1,100.0,0.0,0,0,1,
-platydracus_zonatus,Platydracus,species,9,1,100.0,0.0,0,0,1,
+platydracus_zonatus,Platydracus,species,9,1,100.0,0.0,0,0,1,platydracusgroup_buquetii (1)
 platydracusgroup_immaculatus,Platydracus,species_group,1,1,100.0,0.0,0,0,1,"platydracus_biseriatus (1), platydracusgroup_buquetii (1)"
-cicindela_punctulata,Cicindela,species,500,74,98.55072463768117,91.8918918918919,68,1,6,"cicindela_punctulata_punctulata (22), cicindela_trifasciata (1), cicindela_trifasciata_ascendens (1)"
-Platydracus,Platydracus,genus,1596,230,98.29059829059828,100.0,230,4,0,"platydracus_fervidus (4), platydracusgroup_tomentosus (3), platydracusgroup_buquetii (3), platydracus_femoratus (2), platydracusgroup_femoratus (2), platydracus_mexicanus (2), platydracusgroup_cyanomelas (1), platydracus_biseriatus (1), platydracusgroup_fuscomaculatus (1), platydracusgroup_mexicanus (1)"
-platydracusgroup_fuscomaculatus,Platydracus,species_group,361,51,97.95918367346938,94.11764705882352,48,1,3,"platydracus_fervidus (4), platydracusgroup_buquetii (1), platydracusgroup_femoratus (1)"
-cicindela_tranquebarica,Cicindela,species,191,31,96.875,100.0,31,1,0,cicindela_tranquebarica_tranquebarica (12)
-platydracusgroup_cyanomelas,Platydracus,species_group,217,30,96.55172413793103,93.33333333333333,28,1,2,"platydracus_femoratus (1), platydracusgroup_femoratus (1)"
-cicindela_sexguttata,Cicindela,species,328,48,95.91836734693877,97.91666666666666,47,2,1,Platydracus (1)
-cicindela_scutellaris,Cicindela,species,277,47,95.91836734693877,100.0,47,2,0,"cicindela_scutellaris_scutellaris (1), cicindela_scutellaris_lecontei (1)"
-platydracusgroup_femoratus,Platydracus,species_group,311,45,95.65217391304348,97.77777777777777,44,2,1,platydracus_femoratus (1)
-cicindela_formosa,Cicindela,species,276,42,95.45454545454545,100.0,42,2,0,"cicindela_formosa_formosa (6), cicindela_formosa_generosa (4)"
-platydracus_femoratus,Platydracus,species,212,30,93.33333333333333,93.33333333333333,28,2,2,
-cicindela_sedecimpunctata,Cicindela,species,100,16,93.33333333333333,87.5,14,1,2,cicindela_sedecimpunctata_sedecimpunctata (1)
-cicindela_hirticollis,Cicindela,species,176,29,92.85714285714286,89.65517241379311,26,2,3,"cicindela_repanda (9), cicindela_repanda_repanda (3), cicindela_hirticollis_hirticollis (3)"
-cicindela_rufiventris_rufiventris,Cicindela,subspecies,77,12,92.3076923076923,100.0,12,1,0,
-platydracus_biseriatus,Platydracus,species,82,12,92.3076923076923,100.0,12,1,0,
-platydracusgroup_buquetii,Platydracus,species_group,216,32,90.9090909090909,93.75,30,3,2,platydracusgroup_cyanomelas (1)
-platydracusgroup_mexicanus,Platydracus,species_group,82,12,90.9090909090909,83.33333333333334,10,1,2,platydracusgroup_tomentosus (1)
-cicindela_trifasciata,Cicindela,species,188,30,90.625,96.66666666666667,29,3,1,"cicindela_trifasciata_sigmoidea (7), cicindela_trifasciata_peruviana (2), cicindela_trifasciata_ascendens (1)"
-cicindela_oregona,Cicindela,species,267,44,89.58333333333334,97.72727272727273,43,5,1,"cicindela_oregona_oregona (5), cicindela_oregona_maricopa (2)"
-cicindela_scutellaris_lecontei,Cicindela,subspecies,156,23,88.46153846153845,100.0,23,3,0,
-cicindela_formosa_generosa,Cicindela,subspecies,191,28,87.5,100.0,28,4,0,cicindela_formosa_formosa (3)
-cicindela_rufiventris,Cicindela,species,83,14,87.5,100.0,14,2,0,cicindela_rufiventris_rufiventris (1)
-cicindela_fulgida_fulgida,Cicindela,subspecies,42,7,87.5,100.0,7,1,0,
-cicindela_scutellaris_scutellaris,Cicindela,subspecies,46,7,87.5,100.0,7,1,0,
-platydracus_fervidus,Platydracus,species,218,30,86.66666666666667,86.66666666666667,26,4,4,"platydracusgroup_buquetii (1), platydracusgroup_femoratus (1)"
+Platydracus,Platydracus,genus,1596,230,99.56709956709958,100.0,230,1,0,"platydracus_femoratus (7), platydracusgroup_tomentosus (4), platydracusgroup_buquetii (3), platydracus_ferox (2), platydracus_nubilis (2), platydracusgroup_femoratus (2), platydracusgroup_caliginosus (2), platydracus_mendicus (2), platydracus_centralis (1), platydracusgroup_centralis (1), platydracus_biseriatus (1), platydracus_fervidus_fervidus (1), platydracusgroup_cyanomelas (1), platydracusgroup_fuscomaculatus (1), platydracusgroup_maculosus (1)"
+platydracusgroup_fuscomaculatus,Platydracus,species_group,361,51,98.0,96.07843137254902,49,1,2,"platydracusgroup_buquetii (1), platydracus_fervidus_fervidus (1), platydracusgroup_femoratus (1), platydracusgroup_caliginosus (1)"
+cicindela_scutellaris,Cicindela,species,277,47,97.91666666666666,100.0,47,1,0,"cicindela_scutellaris_rugata (1), cicindela_sexguttata (1)"
+cicindela_tranquebarica,Cicindela,species,191,31,96.875,100.0,31,1,0,cicindela_tranquebarica_tranquebarica (10)
+platydracusgroup_cyanomelas,Platydracus,species_group,217,30,96.66666666666667,96.66666666666667,29,1,1,"platydracus_nubilis (2), platydracus_mendicus (2), platydracus_femoratus (1), platydracusgroup_femoratus (1)"
+cicindela_scutellaris_lecontei,Cicindela,subspecies,156,23,95.65217391304348,95.65217391304348,22,1,1,
+cicindela_punctulata,Cicindela,species,500,74,94.87179487179486,100.0,74,4,0,cicindela_punctulata_punctulata (40)
+cicindela_sexguttata,Cicindela,species,328,48,94.0,97.91666666666666,47,3,1,cicindela_punctulata (1)
+cicindela_campestris,Cicindela,species,86,15,93.75,100.0,15,1,0,cicindela_campestris_campestris (4)
+cicindela_sedecimpunctata,Cicindela,species,100,16,93.33333333333333,87.5,14,1,2,cicindela_sedecimpunctata_nigroconfluens (1)
+platydracus_fervidus_fervidus,Platydracus,subspecies,101,14,93.33333333333333,100.0,14,1,0,
+platydracus_biseriatus,Platydracus,species,82,12,91.66666666666666,91.66666666666666,11,1,1,
+cicindela_purpurea,Cicindela,species,125,22,91.30434782608695,95.45454545454545,21,2,1,"cicindela_purpurea_purpurea (3), cicindela_purpurea_audubonii (1), cicindela_limbalis (1), cicindela_splendida (1)"
+platydracusgroup_buquetii,Platydracus,species_group,216,32,90.625,90.625,29,3,3,"platydracus_ferox (2), platydracusgroup_tomentosus (1)"
+cicindela_trifasciata_ascendens,Cicindela,subspecies,56,9,90.0,100.0,9,1,0,
+cicindela_hemorrhagica,Cicindela,species,149,23,88.46153846153845,100.0,23,3,0,cicindela_hemorrhagica_hemorrhagica (1)
+cicindela_rufiventris,Cicindela,species,83,14,87.5,50.0,7,1,7,"platydracus_ferox (9), cicindela_nigrocoerulea_bowditchi (6), platydracus_buqueti (6), platydracus_championi (6), cicindela_aulica (5), cicindela_decemguttata (5), cicindela_decemguttata_decemguttata (5), cicindela_tranquebarica_sierra (5), cicindela_trifasciata_trifasciata (5), cicindela_sedecimpunctata_nigroconfluens (4), platydracus_pluvius (4), platydracusgroup_caliginosus (4), platydracusgroup_femoratus (4), cicindela_longilabris_perviridis (3), cicindela_nigrocoerulea (3), cicindela_rufiventris_rufiventris (2), cicindela_hybrida (2), cicindela_longilabris (2), cicindela_nigrocoerulea_nigrocoerulea (2), cicindela_ocellata_rectilatera (2), cicindela_oregona (2), cicindela_oregona_oregona (2), cicindela_whithillii (2)"
+cicindela_hemorrhagica_hemorrhagica,Cicindela,subspecies,142,21,86.95652173913044,95.23809523809523,20,3,1,
 cicindela_sedecimpunctata_sedecimpunctata,Cicindela,subspecies,91,13,86.66666666666667,100.0,13,2,0,
-cicindela_repanda,Cicindela,species,501,73,85.71428571428571,98.63013698630137,72,12,1,"cicindela_repanda_repanda (19), cicindela_hirticollis (2), Platydracus (1)"
-platydracusgroup_tomentosus,Platydracus,species_group,138,19,83.33333333333334,78.94736842105263,15,3,4,
-cicindela_campestris,Cicindela,species,86,15,83.33333333333334,100.0,15,3,0,cicindela_campestris_campestris (3)
+platydracusgroup_femoratus,Platydracus,species_group,311,45,86.27450980392157,97.77777777777777,44,7,1,platydracus_femoratus (6)
+cicindela_splendida,Cicindela,species,77,12,85.71428571428571,100.0,12,2,0,cicindela_limbalis (1)
+cicindela_depressula,Cicindela,species,43,9,83.33333333333334,55.55555555555556,5,1,4,"cicindela_longilabris (1), cicindela_oregona (1), cicindela_oregona_oregona (1)"
 cicindela_sylvatica,Cicindela,species,23,5,83.33333333333334,100.0,5,1,0,cicindela_sylvatica_sylvatica (2)
-cicindela_oregona_oregona,Cicindela,subspecies,219,33,82.85714285714286,87.87878787878788,29,6,4,cicindela_oregona_maricopa (2)
-platydracus_mexicanus,Platydracus,species,75,11,81.81818181818183,81.81818181818183,9,2,2,
-cicindela_limbalis,Cicindela,species,60,10,81.81818181818183,90.0,9,2,1,
-cicindela_ocellata_ocellata,Cicindela,subspecies,101,15,81.25,86.66666666666667,13,3,2,"cicindela_hemorrhagica (1), cicindela_sedecimpunctata (1), cicindela_sedecimpunctata_sedecimpunctata (1)"
-cicindela_depressula,Cicindela,species,43,9,80.0,44.44444444444444,4,1,5,
-cicindela_chinensis,Cicindela,species,30,4,80.0,100.0,4,1,0,
-cicindela_hemorrhagica,Cicindela,species,149,23,75.0,91.30434782608695,21,7,2,"cicindela_hemorrhagica_hemorrhagica (1), cicindela_carthagena (1), cicindela_carthagena_carthagena (1)"
-cicindela_campestris_campestris,Cicindela,subspecies,69,11,75.0,81.81818181818183,9,3,2,
-cicindela_trifasciata_ascendens,Cicindela,subspecies,56,9,75.0,66.66666666666666,6,2,3,cicindela_trifasciata_sigmoidea (2)
-cicindela_aurulenta,Cicindela,species,22,4,75.0,75.0,3,1,1,
-cicindela_hemorrhagica_hemorrhagica,Cicindela,subspecies,142,21,73.07692307692307,90.47619047619048,19,7,2,"cicindela_carthagena (1), cicindela_carthagena_carthagena (1)"
-cicindela_longilabris,Cicindela,species,74,14,71.42857142857143,71.42857142857143,10,4,4,cicindela_longilabris_perviridis (2)
-cicindela_repanda_repanda,Cicindela,subspecies,359,53,70.66666666666667,100.0,53,22,0,cicindela_hirticollis (1)
-cicindela_hirticollis_hirticollis,Cicindela,subspecies,77,11,66.66666666666666,54.54545454545454,6,3,5,"cicindela_repanda (4), cicindela_repanda_repanda (1)"
-cicindela_carthagena,Cicindela,species,21,4,66.66666666666666,50.0,2,1,2,"cicindela_hemorrhagica (4), cicindela_hemorrhagica_hemorrhagica (4)"
+cicindela_oregona,Cicindela,species,267,44,81.13207547169812,97.72727272727273,43,10,1,"cicindela_oregona_oregona (11), cicindela_oregona_maricopa (3)"
+platydracusgroup_tomentosus,Platydracus,species_group,138,19,80.95238095238095,89.47368421052632,17,4,2,
+platydracus_femoratus,Platydracus,species,212,30,80.55555555555556,96.66666666666667,29,7,1,
+platydracusgroup_centralis,Platydracus,species_group,41,6,80.0,66.66666666666666,4,1,2,platydracusgroup_tomentosus (1)
+platydracusgroup_maculosus,Platydracus,species_group,27,4,80.0,100.0,4,1,0,platydracusgroup_fuscomaculatus (1)
+cicindela_ocellata_rectilatera,Cicindela,subspecies,99,15,77.77777777777779,93.33333333333333,14,4,1,"cicindela_hemorrhagica (1), cicindela_hemorrhagica_hemorrhagica (1)"
+cicindela_limbalis,Cicindela,species,60,10,76.92307692307693,100.0,10,3,0,"cicindela_purpurea (2), cicindela_splendida (1)"
+platydracus_centralis,Platydracus,species,29,4,75.0,75.0,3,1,1,
+cicindela_scutellaris_rugata,Cicindela,subspecies,15,3,75.0,100.0,3,1,0,
+cicindela_campestris_campestris,Cicindela,subspecies,69,11,73.33333333333333,100.0,11,4,0,
+cicindela_formosa_formosa,Cicindela,subspecies,77,11,73.33333333333333,100.0,11,4,0,
+cicindela_repanda_repanda,Cicindela,subspecies,359,53,73.23943661971832,98.11320754716981,52,19,1,
+cicindela_nigrocoerulea_nigrocoerulea,Cicindela,subspecies,28,5,71.42857142857143,100.0,5,2,0,"cicindela_aulica (1), cicindela_decemguttata (1), cicindela_decemguttata_decemguttata (1), cicindela_longilabris (1), cicindela_longilabris_perviridis (1), cicindela_nigrocoerulea_bowditchi (1), cicindela_sedecimpunctata_nigroconfluens (1), cicindela_tranquebarica_sierra (1), cicindela_trifasciata_trifasciata (1), cicindela_whithillii (1), platydracus_buqueti (1), platydracus_championi (1), platydracus_ferox (1), platydracus_pluvius (1), platydracusgroup_caliginosus (1), platydracusgroup_femoratus (1)"
+cicindela_hybrida,Cicindela,species,69,11,66.66666666666666,90.9090909090909,10,5,1,
+platydracus_mendicus,Platydracus,species,38,5,66.66666666666666,80.0,4,2,1,
+cicindela_chinensis,Cicindela,species,30,4,66.66666666666666,100.0,4,2,0,
 cicindela_limbata,Cicindela,species,20,4,66.66666666666666,100.0,4,2,0,
-cicindela_formosa_formosa,Cicindela,subspecies,77,11,64.70588235294117,100.0,11,6,0,cicindela_formosa_generosa (2)
-cicindela_oregona_maricopa,Cicindela,subspecies,16,4,60.0,75.0,3,2,1,
-cicindela_tranquebarica_tranquebarica,Cicindela,subspecies,116,17,57.14285714285714,94.11764705882352,16,12,1,
-cicindela_carthagena_carthagena,Cicindela,subspecies,20,4,50.0,25.0,1,1,3,"cicindela_hemorrhagica (4), cicindela_hemorrhagica_hemorrhagica (4)"
-cicindela_sylvatica_sylvatica,Cicindela,subspecies,21,3,50.0,100.0,3,3,0,
-cicindela_trifasciata_peruviana,Cicindela,subspecies,13,3,50.0,66.66666666666666,2,2,1,cicindela_trifasciata_sigmoidea (2)
+cicindela_angulata,Cicindela,species,10,2,66.66666666666666,100.0,2,1,0,
+cicindela_angulata_angulata,Cicindela,subspecies,9,2,66.66666666666666,100.0,2,1,0,
+cicindela_oregona_oregona,Cicindela,subspecies,219,33,64.44444444444444,87.87878787878788,29,16,4,cicindela_oregona_maricopa (3)
+cicindela_nigrocoerulea,Cicindela,species,29,5,62.5,100.0,5,3,0,"cicindela_aulica (1), cicindela_decemguttata (1), cicindela_decemguttata_decemguttata (1), cicindela_longilabris (1), cicindela_longilabris_perviridis (1), cicindela_nigrocoerulea_bowditchi (1), cicindela_sedecimpunctata_nigroconfluens (1), cicindela_tranquebarica_sierra (1), cicindela_trifasciata_trifasciata (1), cicindela_whithillii (1), platydracus_buqueti (1), platydracus_championi (1), platydracus_ferox (1), platydracus_pluvius (1), platydracusgroup_caliginosus (1), platydracusgroup_femoratus (1)"
+cicindela_longilabris,Cicindela,species,74,14,61.904761904761905,92.85714285714286,13,8,1,cicindela_longilabris_perviridis (4)
+cicindela_tranquebarica_tranquebarica,Cicindela,subspecies,116,17,61.53846153846154,94.11764705882352,16,10,1,
+cicindela_hirticollis_hirticollis,Cicindela,subspecies,77,11,60.0,54.54545454545454,6,4,5,
+cicindela_sylvatica_sylvatica,Cicindela,subspecies,21,3,60.0,100.0,3,2,0,
+platydracusgroup_caliginosus,Platydracus,species_group,83,13,58.82352941176471,76.92307692307693,10,7,3,"platydracusgroup_tomentosus (1), platydracusgroup_maculosus (1)"
+cicindela_purpurea_purpurea,Cicindela,subspecies,27,5,50.0,60.0,3,3,2,
+cicindela_oregona_maricopa,Cicindela,subspecies,16,4,50.0,75.0,3,3,1,cicindela_oregona_oregona (4)
+cicindela_purpurea_audubonii,Cicindela,subspecies,19,4,50.0,25.0,1,1,3,
 cicindela_limbata_limbata,Cicindela,subspecies,7,1,50.0,100.0,1,1,0,
-cicindela_punctulata_punctulata,Cicindela,subspecies,167,25,45.0,72.0,18,22,7,
-cicindela_trifasciata_sigmoidea,Cicindela,subspecies,32,5,41.66666666666667,100.0,5,7,0,
-cicindela_purpurea_audubonii,Cicindela,subspecies,19,4,33.33333333333333,25.0,1,2,3,
-cicindela_longilabris_perviridis,Cicindela,subspecies,42,6,25.0,16.666666666666664,1,3,5,
-cicindela_angulata,Cicindela,species,10,2,0.0,0.0,0,1,2,cicindela_repanda (1)
-cicindela_angulata_angulata,Cicindela,subspecies,9,2,0.0,0.0,0,1,2,cicindela_repanda (1)
+platydracus_championi,Platydracus,species,33,5,41.66666666666667,100.0,5,7,0,
+cicindela_decemguttata,Cicindela,species,23,5,40.0,80.0,4,6,1,
+cicindela_whithillii,Cicindela,species,6,2,40.0,100.0,2,3,0,
+cicindela_punctulata_punctulata,Cicindela,subspecies,167,25,36.507936507936506,92.0,23,40,2,
+cicindela_rufiventris_rufiventris,Cicindela,subspecies,77,12,33.33333333333333,8.333333333333332,1,2,11,"platydracus_ferox (9), cicindela_nigrocoerulea_bowditchi (6), platydracus_buqueti (6), platydracus_championi (6), cicindela_aulica (5), cicindela_decemguttata (5), cicindela_decemguttata_decemguttata (5), cicindela_tranquebarica_sierra (5), cicindela_trifasciata_trifasciata (5), cicindela_sedecimpunctata_nigroconfluens (4), platydracus_pluvius (4), platydracusgroup_caliginosus (4), platydracusgroup_femoratus (4), cicindela_longilabris_perviridis (3), cicindela_nigrocoerulea (3), cicindela_hybrida (2), cicindela_longilabris (2), cicindela_nigrocoerulea_nigrocoerulea (2), cicindela_ocellata_rectilatera (2), cicindela_oregona (2), cicindela_oregona_oregona (2), cicindela_whithillii (2)"
+cicindela_longilabris_perviridis,Cicindela,subspecies,42,6,33.33333333333333,83.33333333333334,5,10,1,
+platydracus_nubilis,Platydracus,species,19,3,33.33333333333333,33.33333333333333,1,2,2,
+cicindela_clarina,Cicindela,species,4,1,33.33333333333333,100.0,1,2,0,
+platydracus_pluvius,Platydracus,species,30,4,16.666666666666664,25.0,1,5,3,
+cicindela_sedecimpunctata_nigroconfluens,Cicindela,subspecies,6,2,14.285714285714285,50.0,1,6,1,
+platydracus_buqueti,Platydracus,species,24,4,0.0,0.0,0,7,4,platydracus_ferox (2)
+platydracus_ferox,Platydracus,species,25,4,0.0,0.0,0,12,4,
+cicindela_decemguttata_decemguttata,Cicindela,subspecies,6,2,0.0,0.0,0,6,2,
+cicindela_trifasciata_trifasciata,Cicindela,subspecies,14,2,0.0,0.0,0,6,2,"cicindela_trifasciata_ascendens (1), cicindela_punctulata (1)"
+cicindela_aulica,Cicindela,species,3,1,0.0,0.0,0,6,1,cicindela_lugens (1)

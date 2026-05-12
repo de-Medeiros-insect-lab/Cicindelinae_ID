@@ -48,6 +48,44 @@ performance_data <- read_csv("test_results_eva02_large_patch14_448.mim_m38m_ft_i
 glimpse(performance_data)
 ```
 
+We also pull in the Platydracus species-group mapping (`images/Platydracus/species_groups.csv`) so each species/subspecies row can be tagged with its group. Keys are built the same way as in the training notebook: `platydracus_<species>[_<subsp>]`.
+
+```{r species-group-mapping}
+species_groups_raw <- read_csv("./species_groups.csv", show_col_types = FALSE)
+
+species_group_map <- species_groups_raw %>%
+  mutate(
+    parts = str_split(str_trim(full_taxonomy), "\\s+"),
+    genus_part = map_chr(parts, 1),
+    rest = map_chr(parts, ~ paste(.x[-1], collapse = "_"))
+  ) %>%
+  filter(genus_part == "Platydracus", rest != "") %>%
+  transmute(
+    taxon = paste0("platydracus_", rest),
+    species_group = str_trim(species_group)
+  )
+
+# Propagate species-level group to subspecies rows that aren't listed explicitly.
+species_level_map <- species_group_map %>%
+  filter(str_count(taxon, "_") == 1) %>%
+  rename(species_taxon = taxon, species_group_from_species = species_group)
+
+performance_data <- performance_data %>%
+  mutate(
+    species_taxon = if_else(
+      genus == "Platydracus" & taxonomic_level %in% c("species", "subspecies"),
+      str_extract(taxon, "^platydracus_[^_]+"),
+      NA_character_
+    )
+  ) %>%
+  left_join(species_group_map, by = "taxon") %>%
+  left_join(species_level_map, by = "species_taxon") %>%
+  mutate(
+    species_group = coalesce(species_group, species_group_from_species)
+  ) %>%
+  select(-species_taxon, -species_group_from_species)
+```
+
 ## Per-Genus, Per-Level Summary Statistics
 
 ```{r helper-function}
@@ -210,27 +248,51 @@ dist_plot
 
 ## F1 Score vs Training Sample Size
 
-```{r f1-plot, fig.width=7, fig.height=4}
-f1_plot <- ggplot(plot_data) +
+To spot whether any Platydracus species group is disproportionately hard, the
+points/curves are split into one panel per group. Cicindela (no species groups
+defined) appears as its own panel. The dashed gray curve in every panel is the
+global Platydracus species-group-level smooth, repeated so each panel can be
+read against the same baseline.
+
+```{r f1-plot, fig.width=10, fig.height=7}
+f1_data <- plot_data %>%
+  filter(taxonomic_level %in% c("species", "subspecies")) %>%
+  mutate(
+    panel = case_when(
+      genus == "Cicindela" ~ "Cicindela",
+      !is.na(species_group) ~ paste0("Platydracus: ", species_group),
+      TRUE ~ "Platydracus: (ungrouped)"
+    )
+  )
+
+# Baseline: Platydracus species/subspecies points, repeated in every panel.
+baseline_data <- f1_data %>%
+  filter(genus == "Platydracus") %>%
+  select(training_specimens, f1)
+
+f1_plot <- ggplot(f1_data, aes(x = training_specimens, y = f1)) +
   geom_smooth(
+    data = baseline_data,
     aes(x = training_specimens, y = f1),
     method = "loess",
-    span = 0.6,
+    span = 0.8,
     se = FALSE,
-    color = gray(0.8)
+    color = gray(0.7),
+    linetype = "dashed",
+    inherit.aes = FALSE
   ) +
-    geom_smooth(
-    aes(x = training_specimens, y = f1, group=genus,color=genus),
+  geom_smooth(
+    aes(color = genus),
     method = "loess",
-    span = 0.6,
-    se = FALSE,
-    alpha=0.2,
+    span = 0.8,
+    se = FALSE
   ) +
   geom_jitter(
-    aes(x = training_specimens, y = f1, color = genus, shape = taxonomic_level),
+    aes(color = genus, shape = taxonomic_level),
     width = 0.03,
     height = 0.03,
-    alpha = 0.6
+    alpha = 0.7,
+    size = 1.6
   ) +
   scale_x_log10(breaks = c(1, 2, 5, 10, 20, 50, 100, 200, 500)) +
   scale_y_continuous(
@@ -239,13 +301,28 @@ f1_plot <- ggplot(plot_data) +
   ) +
   scale_color_brewer(palette = "Set2", name = "Genus") +
   scale_shape_discrete(name = "Level") +
-  ggtitle("F1 score by label frequency") +
+  facet_wrap(~ panel, ncol = 4) +
+  ggtitle("F1 score by label frequency, split by Platydracus species group") +
   xlab("Number of training samples") +
   ylab("F1 score") +
   theme_minimal() +
-  theme(text = element_text(size=9))
+  theme(text = element_text(size = 9), legend.position = "bottom")
 
 f1_plot
+```
+
+```{r f1-by-group-summary}
+f1_data %>%
+  filter(genus == "Platydracus", !is.na(species_group)) %>%
+  group_by(species_group) %>%
+  summarise(
+    n_taxa = n(),
+    median_f1 = median(f1, na.rm = TRUE),
+    mean_f1 = mean(f1, na.rm = TRUE),
+    median_train = median(training_specimens),
+    .groups = "drop"
+  ) %>%
+  arrange(median_f1)
 ```
 
 ## Combined Performance Visualization

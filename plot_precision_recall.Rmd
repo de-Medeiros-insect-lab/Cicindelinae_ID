@@ -145,7 +145,7 @@ precision_recall_plot <- ggplot() +
     aes(y = precision, x = recall, color = training_specimens),
     width = 0.02,
     height = 0.02,
-    alpha = 0.4
+    alpha = 0.2
   ) +
   geom_point(
     data = plot_averages_sub,
@@ -191,14 +191,15 @@ training_size_data <- performance_data %>%
 training_size_plot <- ggplot(training_size_data) +
   geom_jitter(
     aes(x = training_specimens, y = value, color = genus),
-    width = 0.03,
-    height = 0.03,
+    width = 0,#0.03,
+    height = 0,#0.03,
     alpha = 0.5
   ) +
   scale_x_log10() +
   scale_y_continuous(labels = scales::percent) +
   xlab("Training specimens (log scale)") +
   ylab("Performance") +
+  scale_colour_viridis_d() +
   facet_grid(taxonomic_level ~ metric) +
   theme_minimal()
 
@@ -233,7 +234,7 @@ dist_plot <- ggplot(plot_data) +
   geom_histogram(
     aes(x = training_specimens, fill = genus),
     bins = 50,
-    position = "stack"
+    position = "dodge"
   ) +
   scale_fill_brewer(palette = "Set2") +
   scale_x_log10(breaks=c(1,2,5,10,20,50,100,200,500)) +

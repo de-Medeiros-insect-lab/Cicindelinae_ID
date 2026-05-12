@@ -249,61 +249,80 @@ dist_plot
 
 ## F1 Score vs Training Sample Size
 
-To spot whether any Platydracus species group is disproportionately hard, the
-points/curves are split into one panel per group. Cicindela (no species groups
-defined) appears as its own panel. The dashed gray curve in every panel is the
-global Platydracus species-group-level smooth, repeated so each panel can be
-read against the same baseline.
+Single-panel view of species-level F1 vs. number of training specimens. Three
+loess curves: *Cicindela*, *Platydracus* overall, and the *Platydracus
+femoratus* species group (the morphologically hardest group). Points are
+species, coloured to match the curve they contribute to (femoratus-group
+species are split out from the rest of Platydracus).
 
-```{r f1-plot, fig.width=10, fig.height=7}
+```{r f1-plot, fig.width=7, fig.height=5}
+curve_levels <- c("Cicindela", "Platydracus", "Platydracus femoratus group")
+
 f1_data <- plot_data %>%
-  filter(taxonomic_level %in% c("species", "subspecies")) %>%
+  filter(taxonomic_level == "species") %>%
   mutate(
-    panel = case_when(
+    point_group = case_when(
       genus == "Cicindela" ~ "Cicindela",
-      !is.na(species_group) ~ paste0("Platydracus: ", species_group),
-      TRUE ~ "Platydracus: (ungrouped)"
-    )
+      genus == "Platydracus" & species_group == "femoratus" ~ "Platydracus femoratus group",
+      genus == "Platydracus" ~ "Platydracus"
+    ),
+    point_group = factor(point_group, levels = curve_levels)
   )
 
-# Baseline: Platydracus species/subspecies points, repeated in every panel.
-baseline_data <- f1_data %>%
-  filter(genus == "Platydracus") %>%
-  select(training_specimens, f1)
+curve_data <- bind_rows(
+  f1_data %>% filter(genus == "Cicindela") %>% mutate(curve_group = "Cicindela"),
+  f1_data %>% filter(genus == "Platydracus") %>% mutate(curve_group = "Platydracus"),
+  f1_data %>%
+    filter(genus == "Platydracus", species_group == "femoratus") %>%
+    mutate(curve_group = "Platydracus femoratus group")
+) %>%
+  mutate(curve_group = factor(curve_group, levels = curve_levels))
 
-f1_plot <- ggplot(f1_data, aes(x = training_specimens, y = f1)) +
-  geom_smooth(
-    data = baseline_data,
-    aes(x = training_specimens, y = f1),
-    method = "loess",
-    span = 0.8,
-    se = FALSE,
-    color = gray(0.7),
-    linetype = "dashed",
-    inherit.aes = FALSE
-  ) +
-  geom_smooth(
-    aes(color = genus),
-    method = "loess",
-    span = 0.8,
-    se = FALSE
-  ) +
+set2 <- RColorBrewer::brewer.pal(3, "Set2")
+curve_colors <- c(
+  "Cicindela"                    = set2[1],
+  "Platydracus"                  = set2[2],
+  "Platydracus femoratus group"  = set2[3]
+)
+curve_linetypes <- c(
+  "Cicindela"                    = "solid",
+  "Platydracus"                  = "solid",
+  "Platydracus femoratus group"  = "dashed"
+)
+
+f1_plot <- ggplot() +
   geom_jitter(
-    aes(color = genus, shape = taxonomic_level),
+    data = f1_data,
+    aes(x = training_specimens, y = f1, color = point_group),
     width = 0.03,
     height = 0.03,
     alpha = 0.7,
     size = 1.6
+  ) +
+  geom_smooth(
+    data = curve_data,
+    aes(x = training_specimens, y = f1,
+        color = curve_group, linetype = curve_group),
+    method = "loess",
+    span = 1,
+    se = FALSE
   ) +
   scale_x_log10(breaks = c(1, 2, 5, 10, 20, 50, 100, 200, 500)) +
   scale_y_continuous(
     labels = scales::percent,
     breaks = seq(0, 1.00, by = 0.20)
   ) +
-  scale_color_brewer(palette = "Set2", name = "Genus") +
-  scale_shape_discrete(name = "Level") +
-  facet_wrap(~ panel, ncol = 4) +
-  ggtitle("F1 score by label frequency, split by Platydracus species group") +
+  scale_color_manual(
+    values = curve_colors,
+    breaks = c("Cicindela", "Platydracus", "Platydracus femoratus group"),
+    name = NULL
+  ) +
+  scale_linetype_manual(
+    values = curve_linetypes,
+    breaks = c("Cicindela", "Platydracus", "Platydracus femoratus group"),
+    name = NULL
+  ) +
+  ggtitle("F1 score by training sample size (species level)") +
   xlab("Number of training samples") +
   ylab("F1 score") +
   theme_minimal() +
@@ -408,5 +427,5 @@ ggsave(
 
 ```{r taxon-lookup}
 performance_data %>%
-  filter(taxon %in% c("cicindela_sylvicola", "Cicindela", "Platydracus"))
+  filter(taxon %in% c("cicindela_sylvicola", "Cicindela", "Platydracus","platydracusgroup_femoratus"))
 ```

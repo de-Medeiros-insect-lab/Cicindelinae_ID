@@ -15,3 +15,4 @@ checkpoint.ipynb
 
 # Exported fastai models
 exported_fastai_models/
+.positai

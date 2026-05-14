@@ -95,8 +95,8 @@ calculate_averages <- function(data, ...) {
     summarise(
       precision_equal = mean(precision, na.rm = TRUE),
       recall_equal = mean(recall, na.rm = TRUE),
-      precision_weighted = weighted.mean(precision, training_specimens, na.rm = TRUE),
-      recall_weighted = weighted.mean(recall, training_specimens, na.rm = TRUE),
+      precision_weighted = weighted.mean(precision, test_specimens, na.rm = TRUE),
+      recall_weighted = weighted.mean(recall, test_specimens, na.rm = TRUE),
       n_terms = n(),
       .groups = 'drop'
     )
@@ -428,4 +428,9 @@ ggsave(
 ```{r taxon-lookup}
 performance_data %>%
   filter(taxon %in% c("cicindela_sylvicola", "Cicindela", "Platydracus","platydracusgroup_femoratus"))
+```
+
+```{r taxon-lookup}
+performance_data %>%
+  filter(species_group %in% c("femoratus"))
 ```
